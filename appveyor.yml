@@ -5,14 +5,14 @@ environment:
 nuget:
   disable_publish_on_pr: true
 before_build:
-- cmd: nuget restore Source\AuthenticationServer.sln
+- cmd: nuget restore "Source\AuthenticationServer.sln"
 build:
   #publish_nuget: true
   #publish_nuget_symbols: true
   #include_nuget_references: true
   verbosity: minimal
 after_build:
-- cmd: nuget pack "$(APPVEYOR_BUILD_FOLDER)\Source\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj" -Properties "Configuration=Release;Platform=AnyCPU" -Symbols -IncludeReferencedProjects
+- cmd: nuget pack "Source\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj" -Properties "Configuration=Release;Platform=AnyCPU" -Symbols -IncludeReferencedProjects
 configuration: Release
 deploy:
 - provider: NuGet
