@@ -14,6 +14,9 @@ build:
 after_build:
 - cmd: nuget pack "Source\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj" -Properties "Configuration=Release;Platform=AnyCPU" -Symbols -IncludeReferencedProjects
 configuration: Release
+artifacts:
+  - path: '**\*.nupkg'
+    name: NuGet packages
 deploy:
 - provider: NuGet
   artifact: Affecto.AuthenticationServer.Claims.nupkg
