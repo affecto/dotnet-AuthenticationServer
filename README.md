@@ -12,6 +12,6 @@ Authentication server supporting OAuth 2.0.
 
 | Target | Build |
 | -----------------------|------------------|
-| Project | [![Build status](https://ci.appveyor.com/api/projects/status/v504w5181d6uishe?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authenticationserver) |
-| Master branch | [![Build status](https://ci.appveyor.com/api/projects/status/v504w5181d6uishe/branch/master?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authenticationserver/branch/master) |
-| Dev-ServiceRegister branch | [![Build status](https://ci.appveyor.com/api/projects/status/v504w5181d6uishe/branch/dev-serviceregister?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authenticationserver/branch/dev-serviceregister) |
+| Project | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authenticationserver) |
+| Master branch | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2/branch/master?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authenticationserver/branch/master) |
+| Dev-ServiceRegister branch | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2/branch/dev-serviceregister?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authenticationserver/branch/dev-serviceregister) |
