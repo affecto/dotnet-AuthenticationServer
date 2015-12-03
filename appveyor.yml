@@ -7,19 +7,19 @@ nuget:
 before_build:
 - cmd: nuget restore "Source\AuthenticationServer.sln"
 build:
-  #publish_nuget: true
-  #publish_nuget_symbols: true
-  #include_nuget_references: true
   verbosity: minimal
 after_build:
 - cmd: nuget pack "Source\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj" -Properties "Configuration=Release;Platform=AnyCPU" -Symbols -IncludeReferencedProjects
 configuration: Release
 artifacts:
-  - path: '**\*.nupkg'
-    name: NuGet packages
+  - path: 'Source\AuthenticationServer\obj\octopacked\AuthenticationServer.*.nupkg'
+    name: Authentication Server OctoPack
+  - path: 'Source\AuthenticationServer.IdentityManagement\obj\octopacked\AuthenticationServer.IdentityManagement.*.nupkg'
+    name: Authentication Server Identity Management Plugin OctoPack
+  - path: 'Affecto.AuthenticationServer.Claims.*.nupkg'
 deploy:
 - provider: NuGet
-  artifact: Affecto.AuthenticationServer.Claims.nupkg
+  artifact: /Affecto\.AuthenticationServer\.Claims\..*\.nupkg/
   api_key:
     secure: ySttUuKXaqz/qn7dZRtJJs7H8wTDgT8Wgi55QFGZjmVE2XL14T2puaPiBcNMZC1l
   on:
