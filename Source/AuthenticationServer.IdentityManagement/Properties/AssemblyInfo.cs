@@ -7,6 +7,6 @@ using System.Runtime.CompilerServices;
 
 [assembly: AssemblyVersion("2.0.0.0")]
 [assembly: AssemblyFileVersion("2.0.0.0")]
-[assembly: AssemblyInformationalVersion("2.0.0-prerelease01")]
+[assembly: AssemblyInformationalVersion("2.0.0-prerelease02")]
 
 [assembly: InternalsVisibleTo("Affecto.AuthenticationServer.IdentityManagement.Tests")]
