@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AuthenticationServer</id>
+    <title>Authentication Server</title>
+    <description>Authentication server supporting OAuth 2.0.</description>
+    <authors>Affecto</authors>
+    <version>$version$</version>
+    <releaseNotes>Removed direct dependencies to custom handlers and validators. Renamed assemblies and namespaces.</releaseNotes>
+  </metadata>
+</package>

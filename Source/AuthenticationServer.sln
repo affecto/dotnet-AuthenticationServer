@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer", "AuthenticationServer\AuthenticationServer.csproj", "{42B49297-E203-4583-A759-921FFFC14E11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.IdentityManagement", "AuthenticationServer.IdentityManagement\AuthenticationServer.IdentityManagement.csproj", "{8D982C5D-98EC-4337-A46C-8545F92F5F65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C896CF99-8451-41EB-9AAB-FCB374275882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Tests", "AuthenticationServer.Tests\AuthenticationServer.Tests.csproj", "{41913A9C-42A9-42B5-B6AA-70FA8120200D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.IdentityManagement.Tests", "AuthenticationServer.IdentityManagement.Tests\AuthenticationServer.IdentityManagement.Tests.csproj", "{C572739F-F80D-4ADF-A017-63689728D605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Claims", "AuthenticationServer.Claims\AuthenticationServer.Claims.csproj", "{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Claims.Tests", "AuthenticationServer.Claims.Tests\AuthenticationServer.Claims.Tests.csproj", "{CD744703-028A-4D44-95A2-07F22FC71B60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42B49297-E203-4583-A759-921FFFC14E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B49297-E203-4583-A759-921FFFC14E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B49297-E203-4583-A759-921FFFC14E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B49297-E203-4583-A759-921FFFC14E11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D982C5D-98EC-4337-A46C-8545F92F5F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D982C5D-98EC-4337-A46C-8545F92F5F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D982C5D-98EC-4337-A46C-8545F92F5F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D982C5D-98EC-4337-A46C-8545F92F5F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41913A9C-42A9-42B5-B6AA-70FA8120200D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41913A9C-42A9-42B5-B6AA-70FA8120200D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41913A9C-42A9-42B5-B6AA-70FA8120200D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41913A9C-42A9-42B5-B6AA-70FA8120200D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C572739F-F80D-4ADF-A017-63689728D605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C572739F-F80D-4ADF-A017-63689728D605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C572739F-F80D-4ADF-A017-63689728D605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C572739F-F80D-4ADF-A017-63689728D605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD744703-028A-4D44-95A2-07F22FC71B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD744703-028A-4D44-95A2-07F22FC71B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD744703-028A-4D44-95A2-07F22FC71B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD744703-028A-4D44-95A2-07F22FC71B60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41913A9C-42A9-42B5-B6AA-70FA8120200D} = {C896CF99-8451-41EB-9AAB-FCB374275882}
+		{C572739F-F80D-4ADF-A017-63689728D605} = {C896CF99-8451-41EB-9AAB-FCB374275882}
+		{CD744703-028A-4D44-95A2-07F22FC71B60} = {C896CF99-8451-41EB-9AAB-FCB374275882}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AuthenticationServer.IdentityManagement</id>
+    <title>Authentication Server - Identity Management Plugin</title>
+    <description>Plugin for Authentication Server supporting user account validation and building claims from Identity Management.</description>
+    <authors>Affecto</authors>
+    <version>$version$</version>
+    <releaseNotes>Removed direct dependencies from server assembly. Renamed assemblies and namespaces.</releaseNotes>
+  </metadata>
+</package>
