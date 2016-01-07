@@ -14,4 +14,4 @@ Authentication server supporting OAuth 2.0.
 | -----------------------|------------------|
 | Project | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authenticationserver) |
 | Master branch | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2/branch/master?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authenticationserver/branch/master) |
-| Dev-ServiceRegister branch | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2/branch/dev-serviceregister?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authenticationserver/branch/dev-serviceregister) |
+| Development branch | [![Build status](https://ci.appveyor.com/api/projects/status/14v5fubj1wevbqj2/branch/development?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authenticationserver/branch/development) |
