@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Affecto.AuditTrail.Interfaces;
 using Affecto.AuditTrail.Interfaces.Model;
+using Affecto.AuthenticationServer.Configuration;
 using Autofac;
 using IdentityServer3.Core.Services;
 

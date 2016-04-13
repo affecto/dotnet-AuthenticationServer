@@ -4,7 +4,6 @@ using Affecto.AuthenticationServer.Configuration;
 using Affecto.Logging;
 using Affecto.Logging.Log4Net;
 using Autofac;
-using Autofac.Configuration;
 
 namespace Affecto.AuthenticationServer
 {
@@ -13,12 +12,7 @@ namespace Affecto.AuthenticationServer
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-
-            builder.RegisterModule(new ConfigurationSettingsReader());
-
-            builder.RegisterInstance(AuthenticationServerConfiguration.Settings).As<IAuthenticationServerConfiguration>();
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>();
-
             builder.Register(CreateAuthenticatedUserContext).SingleInstance().As<IAuthenticatedUserContext>();
         }
 
