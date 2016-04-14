@@ -114,6 +114,10 @@
       <HintPath>..\packages\Affecto.Patterns.Specification.1.2.0\lib\net40\Affecto.Patterns.Specification.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AuthenticationServer.Claims, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthenticationServer.Claims.1.0.0\lib\net45\AuthenticationServer.Claims.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
@@ -189,12 +193,6 @@
     <Content Include="AuthenticationServer.IdentityManagement.nuspec" />
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj">
-      <Project>{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}</Project>
-      <Name>AuthenticationServer.Claims</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
