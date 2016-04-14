@@ -14,7 +14,6 @@ namespace Affecto.AuthenticationServer
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<AuthenticationServerModule>();
-            builder.RegisterModule<ConfigurationModule>();
             builder.RegisterModule<IdentityManagementModule>();
             IContainer container = builder.Build();
 

@@ -8,7 +8,6 @@ namespace Affecto.AuthenticationServer.Configuration
     {
         bool RequireHttps { get; }
         string ServiceUserName { get; }
-        bool AutoCreateUser { get; }
         IReadOnlyCollection<string> AllowedOrigins { get; }
         StoreName SigningCertificateStore { get; }
         string SigningCertificateThumbprint { get; }

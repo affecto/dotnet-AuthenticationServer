@@ -45,13 +45,6 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["serviceUserName"] = value; }
         }
 
-        [ConfigurationProperty("autoCreateUser", IsRequired = false, DefaultValue = false)]
-        public bool AutoCreateUser
-        {
-            get { return (bool) this["autoCreateUser"]; }
-            set { this["autoCreateUser"] = value; }
-        }
-
         [ConfigurationProperty("signingCertificateStore", IsRequired = true)]
         public StoreName SigningCertificateStore
         {

@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Affecto.AuthenticationServer.Configuration
+namespace Affecto.AuthenticationServer.IdentityManagement.Configuration
 {
     internal class FederatedAuthenticationConfiguration : ConfigurationSection, IFederatedAuthenticationConfiguration
     {

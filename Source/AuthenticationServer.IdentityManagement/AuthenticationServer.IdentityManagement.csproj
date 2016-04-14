@@ -177,6 +177,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaimsIdentityBuilder.cs" />
+    <Compile Include="Configuration\FederatedAuthenticationConfiguration.cs" />
+    <Compile Include="Configuration\IdentityManagementConfiguration.cs" />
+    <Compile Include="Configuration\IFederatedAuthenticationConfiguration.cs" />
+    <Compile Include="Configuration\IIdentityManagementConfiguration.cs" />
     <Compile Include="IdentityManagementModule.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,10 +194,6 @@
     <ProjectReference Include="..\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj">
       <Project>{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}</Project>
       <Name>AuthenticationServer.Claims</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AuthenticationServer.Configuration\AuthenticationServer.Configuration.csproj">
-      <Project>{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}</Project>
-      <Name>AuthenticationServer.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

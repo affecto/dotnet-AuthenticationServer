@@ -46,7 +46,8 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         [TestMethod]
         public void AutoCreateUserIsRetrieved()
         {
-            bool result = authenticationServerConfiguration.AutoCreateUser;
+            SetupIdentityManagementConfiguration("ValidConfiguration.config");
+            bool result = identityManagementConfiguration.AutoCreateUser;
             Assert.IsTrue(result);
         }
 

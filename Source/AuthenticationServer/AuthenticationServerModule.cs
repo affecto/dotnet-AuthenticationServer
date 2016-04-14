@@ -13,6 +13,7 @@ namespace Affecto.AuthenticationServer
         {
             base.Load(builder);
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>();
+            builder.RegisterInstance(AuthenticationServerConfiguration.Settings).As<IAuthenticationServerConfiguration>();
             builder.Register(CreateAuthenticatedUserContext).SingleInstance().As<IAuthenticatedUserContext>();
         }
 

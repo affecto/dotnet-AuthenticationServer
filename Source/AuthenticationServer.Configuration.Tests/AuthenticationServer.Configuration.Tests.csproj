@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Affecto.AuthenticationServer.Configuration.Tests</RootNamespace>
     <AssemblyName>Affecto.AuthenticationServer.Configuration.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -194,9 +194,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.Configuration\AuthenticationServer.Configuration.csproj">
-      <Project>{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}</Project>
-      <Name>AuthenticationServer.Configuration</Name>
+    <ProjectReference Include="..\AuthenticationServer.IdentityManagement\AuthenticationServer.IdentityManagement.csproj">
+      <Project>{8d982c5d-98ec-4337-a46c-8545f92f5f65}</Project>
+      <Name>AuthenticationServer.IdentityManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuthenticationServer\AuthenticationServer.csproj">
+      <Project>{42b49297-e203-4583-a759-921fffc14e11}</Project>
+      <Name>AuthenticationServer</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

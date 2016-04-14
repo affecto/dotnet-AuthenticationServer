@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Affecto.AuthenticationServer.Configuration;
+using Affecto.AuthenticationServer.IdentityManagement.Configuration;
 using Affecto.IdentityManagement.Interfaces;
 using Affecto.IdentityManagement.Interfaces.Model;
 using IdentityServer3.Core.Models;
@@ -16,10 +16,10 @@ namespace Affecto.AuthenticationServer.IdentityManagement
     {
         private readonly Lazy<IUserService> userService;
         private readonly Lazy<IFederatedAuthenticationConfiguration> federatedAuthenticationConfiguration;
-        private readonly Lazy<IAuthenticationServerConfiguration> configuration;
+        private readonly Lazy<IIdentityManagementConfiguration> configuration;
 
         public UserService(Lazy<IUserService> userService, Lazy<IFederatedAuthenticationConfiguration> federatedAuthenticationConfiguration, 
-            Lazy<IAuthenticationServerConfiguration> configuration)
+            Lazy<IIdentityManagementConfiguration> configuration)
         {
             if (userService == null)
             {
