@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Authentication;
 using System.Security.Claims;
-using Affecto.AuthenticationServer.Claims;
 using Affecto.IdentityManagement.Interfaces;
 using Affecto.IdentityManagement.Interfaces.Model;
+using AuthenticationServer.Claims;
 
 namespace Affecto.AuthenticationServer.IdentityManagement
 {
