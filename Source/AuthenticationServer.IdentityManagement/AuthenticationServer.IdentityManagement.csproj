@@ -46,6 +46,10 @@
       <HintPath>..\packages\Affecto.Authentication.Passwords.1.0.0\lib\net45\Affecto.Authentication.Passwords.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Affecto.AuthenticationServer.Claims, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.AuthenticationServer.Claims.2.0.0\lib\net45\Affecto.AuthenticationServer.Claims.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Affecto.Configuration.Extensions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Affecto.Configuration.Extensions.2.0.0\lib\net40\Affecto.Configuration.Extensions.dll</HintPath>
       <Private>True</Private>
@@ -112,10 +116,6 @@
     </Reference>
     <Reference Include="Affecto.Patterns.Specification, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Affecto.Patterns.Specification.1.2.0\lib\net40\Affecto.Patterns.Specification.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AuthenticationServer.Claims, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AuthenticationServer.Claims.1.0.0\lib\net45\AuthenticationServer.Claims.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
