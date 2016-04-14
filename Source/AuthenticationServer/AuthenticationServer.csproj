@@ -143,21 +143,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CertificateNotFoundException.cs" />
-    <Compile Include="Configuration\AllowedScopeConfiguration.cs" />
-    <Compile Include="Configuration\AuthenticationServerConfiguration.cs" />
     <Compile Include="Certificate.cs" />
     <Compile Include="AuthenticationServerModule.cs" />
-    <Compile Include="Configuration\ClientConfiguration.cs" />
-    <Compile Include="Configuration\ExtensionMethods.cs" />
-    <Compile Include="Configuration\Flow.cs" />
-    <Compile Include="Configuration\IAuthenticationServerConfiguration.cs" />
-    <Compile Include="Configuration\IClient.cs" />
-    <Compile Include="Configuration\IScope.cs" />
-    <Compile Include="Configuration\ScopeConfiguration.cs" />
     <Compile Include="CorsPolicyServiceFactory.cs" />
     <Compile Include="IdentityServerOptionsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuthenticationServer.Configuration\AuthenticationServer.Configuration.csproj">
+      <Project>{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}</Project>
+      <Name>AuthenticationServer.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AuthenticationServer.IdentityManagement\AuthenticationServer.IdentityManagement.csproj">
+      <Project>{8D982C5D-98EC-4337-A46C-8545F92F5F65}</Project>
+      <Name>AuthenticationServer.IdentityManagement</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
