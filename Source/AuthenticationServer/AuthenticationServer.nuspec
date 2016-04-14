@@ -6,6 +6,6 @@
     <description>Authentication server supporting OAuth 2.0.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Removed direct dependencies to custom handlers and validators. Renamed assemblies and namespaces.</releaseNotes>
+    <releaseNotes>Added support for federated authentication.</releaseNotes>
   </metadata>
 </package>
