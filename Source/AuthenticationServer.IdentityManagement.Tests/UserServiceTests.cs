@@ -8,6 +8,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using Affecto.Authentication.Claims;
 using Affecto.AuthenticationServer.IdentityManagement.Configuration;
+using Affecto.AuthenticationServer.Infrastructure.Configuration;
 using Affecto.IdentityManagement.Interfaces;
 using Affecto.IdentityManagement.Interfaces.Model;
 using IdentityServer3.Core.Extensions;
@@ -80,32 +81,32 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
             identityManagementUserService.IsMatchingPassword(AccountName, Password).Returns(true);
 
             sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), 
-                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration), 
-                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration));
+                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration),
+                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void IdentityManagementServiceCannotBeNull()
         {
-            sut = new UserService(null, new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration),
-                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration));
+            sut = new UserService(null, new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration),
+                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ConfigurationCannotBeNull()
+        public void IdentityManagementConfigurationCannotBeNull()
         {
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService),
-                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration), null);
+            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), null,
+                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void FederatedAuthenticationConfigurationCannotBeNull()
         {
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), null,
-                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration));
+            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), 
+                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration), null);
         }
 
         [TestMethod]

@@ -90,6 +90,10 @@
       <Project>{8D982C5D-98EC-4337-A46C-8545F92F5F65}</Project>
       <Name>AuthenticationServer.IdentityManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
+      <Project>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</Project>
+      <Name>AuthenticationServer.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

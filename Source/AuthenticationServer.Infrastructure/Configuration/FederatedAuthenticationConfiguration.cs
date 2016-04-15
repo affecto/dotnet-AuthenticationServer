@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
 
-namespace Affecto.AuthenticationServer.IdentityManagement.Configuration
+namespace Affecto.AuthenticationServer.Infrastructure.Configuration
 {
-    internal class FederatedAuthenticationConfiguration : ConfigurationSection, IFederatedAuthenticationConfiguration
+    public class FederatedAuthenticationConfiguration : ConfigurationSection, IFederatedAuthenticationConfiguration
     {
         private static readonly FederatedAuthenticationConfiguration SettingsInstance =
             ConfigurationManager.GetSection("federatedAuthentication") as FederatedAuthenticationConfiguration;

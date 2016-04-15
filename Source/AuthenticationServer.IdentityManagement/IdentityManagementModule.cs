@@ -4,6 +4,7 @@ using System.Linq;
 using Affecto.AuditTrail.Interfaces;
 using Affecto.AuditTrail.Interfaces.Model;
 using Affecto.AuthenticationServer.IdentityManagement.Configuration;
+using Affecto.AuthenticationServer.Infrastructure.Configuration;
 using Autofac;
 using IdentityServer3.Core.Services;
 
@@ -15,18 +16,12 @@ namespace Affecto.AuthenticationServer.IdentityManagement
         {
             base.Load(builder);
 
-            RegisterConfiguration(builder);
+            builder.RegisterInstance(IdentityManagementConfiguration.Settings).As<IIdentityManagementConfiguration>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterModule<Affecto.IdentityManagement.Autofac.ModuleRegistration>();
             builder.RegisterModule<Affecto.IdentityManagement.Store.PostgreSql.ModuleRegistration>();
 
             builder.RegisterType<AuditTrailMock>().As<IAuditTrailService>();
-        }
-
-        private static void RegisterConfiguration(ContainerBuilder builder)
-        {
-            builder.RegisterInstance(FederatedAuthenticationConfiguration.Settings).As<IFederatedAuthenticationConfiguration>();
-            builder.RegisterInstance(IdentityManagementConfiguration.Settings).As<IIdentityManagementConfiguration>();
         }
     }
 
