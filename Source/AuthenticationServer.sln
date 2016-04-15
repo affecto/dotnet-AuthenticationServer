@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Claims
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Claims.Tests", "AuthenticationServer.Claims.Tests\AuthenticationServer.Claims.Tests.csproj", "{CD744703-028A-4D44-95A2-07F22FC71B60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Configuration", "AuthenticationServer.Configuration\AuthenticationServer.Configuration.csproj", "{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Configuration.Tests", "AuthenticationServer.Configuration.Tests\AuthenticationServer.Configuration.Tests.csproj", "{BACA9C64-A8C2-452A-9341-264CC8CB5797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Infrastructure", "AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj", "{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,14 +51,14 @@ Global
 		{CD744703-028A-4D44-95A2-07F22FC71B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD744703-028A-4D44-95A2-07F22FC71B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD744703-028A-4D44-95A2-07F22FC71B60}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BACA9C64-A8C2-452A-9341-264CC8CB5797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BACA9C64-A8C2-452A-9341-264CC8CB5797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BACA9C64-A8C2-452A-9341-264CC8CB5797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BACA9C64-A8C2-452A-9341-264CC8CB5797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

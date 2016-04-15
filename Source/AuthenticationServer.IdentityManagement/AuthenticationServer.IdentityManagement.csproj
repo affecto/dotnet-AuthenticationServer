@@ -46,6 +46,10 @@
       <HintPath>..\packages\Affecto.Authentication.Passwords.1.0.0\lib\net45\Affecto.Authentication.Passwords.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Affecto.AuthenticationServer.Claims, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.AuthenticationServer.Claims.2.0.0\lib\net45\Affecto.AuthenticationServer.Claims.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Affecto.Configuration.Extensions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Affecto.Configuration.Extensions.2.0.0\lib\net40\Affecto.Configuration.Extensions.dll</HintPath>
       <Private>True</Private>
@@ -177,6 +181,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaimsIdentityBuilder.cs" />
+    <Compile Include="Configuration\IdentityManagementConfiguration.cs" />
+    <Compile Include="Configuration\IIdentityManagementConfiguration.cs" />
     <Compile Include="IdentityManagementModule.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,16 +193,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj">
-      <Project>{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}</Project>
-      <Name>AuthenticationServer.Claims</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AuthenticationServer.Configuration\AuthenticationServer.Configuration.csproj">
-      <Project>{E8EA2808-9786-4C05-874D-5B7A8E2A7C96}</Project>
-      <Name>AuthenticationServer.Configuration</Name>
+    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
+      <Project>{59bdf55c-4c01-4cb6-84f4-a03a1376a4e6}</Project>
+      <Name>AuthenticationServer.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\OctoPack.3.0.45\tools\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.0.45\tools\OctoPack.targets')" />
   <Target Name="EnsureOctoPackImported" BeforeTargets="BeforeBuild" Condition="'$(OctoPackImported)' == ''">

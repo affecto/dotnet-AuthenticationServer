@@ -1,4 +1,4 @@
-﻿namespace Affecto.AuthenticationServer.Configuration
+﻿namespace Affecto.AuthenticationServer.Infrastructure.Configuration
 {
     public interface IFederatedAuthenticationConfiguration
     {

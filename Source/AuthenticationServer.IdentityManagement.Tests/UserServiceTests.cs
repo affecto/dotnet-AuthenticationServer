@@ -7,7 +7,8 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using Affecto.Authentication.Claims;
-using Affecto.AuthenticationServer.Configuration;
+using Affecto.AuthenticationServer.IdentityManagement.Configuration;
+using Affecto.AuthenticationServer.Infrastructure.Configuration;
 using Affecto.IdentityManagement.Interfaces;
 using Affecto.IdentityManagement.Interfaces.Model;
 using IdentityServer3.Core.Extensions;
@@ -33,7 +34,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 
         private IUserService identityManagementUserService;
         private IFederatedAuthenticationConfiguration federatedAuthenticationConfiguration;
-        private IAuthenticationServerConfiguration configuration;
+        private IIdentityManagementConfiguration identityManagementConfiguration;
         private UserService sut;
 
         [TestInitialize]
@@ -74,38 +75,38 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
             expectedUser.Organizations.Returns(new List<IOrganization> { expectedOrganization });
 
             identityManagementUserService = Substitute.For<IUserService>();
-            configuration = Substitute.For<IAuthenticationServerConfiguration>();
+            identityManagementConfiguration = Substitute.For<IIdentityManagementConfiguration>();
             federatedAuthenticationConfiguration = Substitute.For<IFederatedAuthenticationConfiguration>();
             identityManagementUserService.GetUser(AccountName, AccountType.Password).Returns(expectedUser);
             identityManagementUserService.IsMatchingPassword(AccountName, Password).Returns(true);
 
             sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), 
-                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration), 
-                new Lazy<IAuthenticationServerConfiguration>(() => configuration));
+                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration),
+                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void IdentityManagementServiceCannotBeNull()
         {
-            sut = new UserService(null, new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration),
-                new Lazy<IAuthenticationServerConfiguration>(() => configuration));
+            sut = new UserService(null, new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration),
+                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ConfigurationCannotBeNull()
+        public void IdentityManagementConfigurationCannotBeNull()
         {
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService),
-                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration), null);
+            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), null,
+                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void FederatedAuthenticationConfigurationCannotBeNull()
         {
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), null,
-                new Lazy<IAuthenticationServerConfiguration>(() => configuration));
+            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), 
+                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration), null);
         }
 
         [TestMethod]
@@ -197,7 +198,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
             const string userDisplayName = "Ted Tester";
             ExternalAuthenticationContext context = CreateSuccessfulAuthenticationContext(userDisplayName);
             identityManagementUserService.IsExistingUserAccount(expectedAccount.Name, AccountType.Federated).Returns(false);
-            configuration.AutoCreateUser.Returns(true);
+            identityManagementConfiguration.AutoCreateUser.Returns(true);
 
             sut.AuthenticateExternalAsync(context);
 
@@ -209,7 +210,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
         {
             ExternalAuthenticationContext context = CreateSuccessfulAuthenticationContext();
             identityManagementUserService.IsExistingUserAccount(expectedAccount.Name, AccountType.Federated).Returns(false);
-            configuration.AutoCreateUser.Returns(false);
+            identityManagementConfiguration.AutoCreateUser.Returns(false);
 
             sut.AuthenticateExternalAsync(context);
 

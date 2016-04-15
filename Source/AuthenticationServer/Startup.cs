@@ -1,5 +1,4 @@
 ﻿using Affecto.AuthenticationServer.Configuration;
-using Affecto.AuthenticationServer.IdentityManagement;
 using Affecto.Logging;
 using Autofac;
 using IdentityServer3.Core.Configuration;
@@ -14,8 +13,6 @@ namespace Affecto.AuthenticationServer
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<AuthenticationServerModule>();
-            builder.RegisterModule<ConfigurationModule>();
-            builder.RegisterModule<IdentityManagementModule>();
             IContainer container = builder.Build();
 
             ILoggerFactory loggerFactory = container.Resolve<ILoggerFactory>();

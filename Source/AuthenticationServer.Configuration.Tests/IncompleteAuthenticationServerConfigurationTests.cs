@@ -65,8 +65,8 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         [TestMethod]
         public void AutoCreateIsDisabledByDefault()
         {
-            SetupAuthenticationServerConfiguration("AutoCreateIsDisabledByDefault.config");
-            Assert.IsFalse(authenticationServerConfiguration.AutoCreateUser);
+            SetupIdentityManagementConfiguration("AutoCreateIsDisabledByDefault.config");
+            Assert.IsFalse(identityManagementConfiguration.AutoCreateUser);
         }
 
         [TestMethod]

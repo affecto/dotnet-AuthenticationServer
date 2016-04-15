@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Affecto.AuditTrail.Interfaces;
 using Affecto.AuditTrail.Interfaces.Model;
-using Affecto.AuthenticationServer.Configuration;
+using Affecto.AuthenticationServer.IdentityManagement.Configuration;
+using Affecto.AuthenticationServer.Infrastructure.Configuration;
 using Autofac;
 using IdentityServer3.Core.Services;
 
@@ -15,6 +16,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement
         {
             base.Load(builder);
 
+            builder.RegisterInstance(IdentityManagementConfiguration.Settings).As<IIdentityManagementConfiguration>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterModule<Affecto.IdentityManagement.Autofac.ModuleRegistration>();
             builder.RegisterModule<Affecto.IdentityManagement.Store.PostgreSql.ModuleRegistration>();
