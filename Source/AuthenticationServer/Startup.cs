@@ -20,9 +20,6 @@ namespace Affecto.AuthenticationServer
 
             logger.LogVerbose("Initializing AuthenticationServer. This is required for IdentityServer logging to work. Do not remove this!");
 
-            // todo: is this needed? Doesn't compile
-            //app.UseCookieAuthentication(new CookieAuthenticationOptions());
-
             app.Map("/core", coreApp =>
             {
                 IAuthenticationServerConfiguration configuration = container.Resolve<IAuthenticationServerConfiguration>();
