@@ -66,7 +66,7 @@ namespace Affecto.AuthenticationServer.Infrastructure
                     userGroups = context.ExternalIdentity.Claims.Where(c => c.Type == federatedAuthenticationConfiguration.Value.GroupsClaim);
                 }
                 CreateOrUpdateExternallyAuthenticatedUser(userAccountName.Value, userDisplayName.Value, userGroups.Select(c => c.Value));
-                context.AuthenticateResult = CreateAuthenticateResult(userAccountName.Value, AuthenticationTypes.Federation);
+                context.AuthenticateResult = CreateAuthenticateResult(userAccountName.Value, AuthenticationTypes.Federation, context.SignInMessage.IdP);
             }
 
             return Task.FromResult(0);
@@ -81,6 +81,6 @@ namespace Affecto.AuthenticationServer.Infrastructure
             return false;
         }
 
-        protected abstract AuthenticateResult CreateAuthenticateResult(string userName, string authenticationType);
+        protected abstract AuthenticateResult CreateAuthenticateResult(string userName, string authenticationType, string identityProvider = "idsrv");
     }
 }
