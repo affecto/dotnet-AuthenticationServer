@@ -52,6 +52,13 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["accessTokenLifetime"] = value; }
         }
 
+        [ConfigurationProperty("redirectUri", IsRequired = false)]
+        public Uri RedirectUri
+        {
+            get { return (Uri) this["redirectUri"]; }
+            set { this["redirectUri"] = value; }
+        }
+
         public IReadOnlyCollection<string> AllowedScopes
         {
             get { return AllowedScopesInternal.Select(s => s.Name).ToList(); }
@@ -85,6 +92,10 @@ namespace Affecto.AuthenticationServer.Configuration
             if (!(this["accessTokenLifetime"] is TimeSpan))
             {
                 throw new ConfigurationErrorsException($"Client access token lifetime is required for client '{Id}'.");
+            }
+            if (RedirectUri != null && RedirectUri.OriginalString == string.Empty)
+            {
+                RedirectUri = null;
             }
         }
     }

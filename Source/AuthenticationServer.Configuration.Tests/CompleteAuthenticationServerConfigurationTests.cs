@@ -98,6 +98,7 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
             Assert.AreEqual(Flow.ResourceOwner, client.Flow);
             Assert.AreEqual(new TimeSpan(23, 59, 59), client.AccessTokenLifetime);
             Assert.IsFalse(client.Enabled);
+            Assert.AreEqual(new Uri("http://localhost:49612/"), client.RedirectUri);
 
             Assert.AreEqual(1, client.AllowedScopes.Count);
             string allowedScope = client.AllowedScopes.Single();
