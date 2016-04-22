@@ -48,7 +48,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement
             }
         }
 
-        protected override AuthenticateResult CreateAuthenticateResult(string userName, string authenticationType)
+        protected override AuthenticateResult CreateAuthenticateResult(string userName, string authenticationType, string identityProvider = "idsrv")
         {
             var identityBuilder = new ClaimsIdentityBuilder(userService.Value);
             ClaimsIdentity identity;
@@ -64,7 +64,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement
                     throw new ArgumentException(string.Format("Authentication type '{0}' not supported.", authenticationType));
 
             }
-            return new AuthenticateResult(identity.GetUserId(), identity.Name, identity.Claims, authenticationType);
+            return new AuthenticateResult(identity.GetUserId(), identity.Name, identity.Claims, identityProvider);
         }
 
         protected override bool IsMatchingPassword(string userName, string password)

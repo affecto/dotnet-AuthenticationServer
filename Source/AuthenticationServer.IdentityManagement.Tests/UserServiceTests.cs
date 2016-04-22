@@ -282,6 +282,10 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
                 ExternalIdentity = new ExternalIdentity
                 {
                     Claims = new List<Claim> { new Claim(userAccountNameClaim, expectedAccount.Name), new Claim(userDisplayNameClaim, userDisplayName) }
+                },
+                SignInMessage = new SignInMessage
+                {
+                    IdP = "idsrv"
                 }
             };
         }

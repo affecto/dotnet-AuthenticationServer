@@ -12,5 +12,6 @@ namespace Affecto.AuthenticationServer.Configuration
         Flow Flow { get; }
         IReadOnlyCollection<string> AllowedScopes { get; } 
         TimeSpan AccessTokenLifetime { get; }
+        Uri RedirectUri { get; }
     }
 }

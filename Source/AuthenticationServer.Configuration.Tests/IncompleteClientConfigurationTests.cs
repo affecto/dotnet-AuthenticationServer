@@ -104,5 +104,30 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         {
             SetupAuthenticationServerConfiguration("ClientAllowedScopeNameDoesNotMatch.config");
         }
+
+        [TestMethod]
+        public void ClientRedirectUriMissing()
+        {
+            SetupAuthenticationServerConfiguration("ClientRedirectUriMissing.config");
+
+            IClient client = authenticationServerConfiguration.Clients.Single();
+            Assert.IsNull(client.RedirectUri);
+        }
+
+        [TestMethod]
+        public void ClientRedirectUriEmpty()
+        {
+            SetupAuthenticationServerConfiguration("ClientRedirectUriEmpty.config");
+
+            IClient client = authenticationServerConfiguration.Clients.Single();
+            Assert.IsNull(client.RedirectUri);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void ClientRedirectUriInvalid()
+        {
+            SetupAuthenticationServerConfiguration("ClientRedirectUriInvalid.config");
+        }
     }
 }
