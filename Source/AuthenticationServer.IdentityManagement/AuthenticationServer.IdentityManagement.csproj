@@ -180,7 +180,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClaimsAuthenticationManager.cs" />
     <Compile Include="ClaimsIdentityBuilder.cs" />
     <Compile Include="Configuration\IdentityManagementConfiguration.cs" />
     <Compile Include="Configuration\IIdentityManagementConfiguration.cs" />
