@@ -17,8 +17,13 @@ namespace Affecto.AuthenticationServer
             builder.RegisterModule(new ConfigurationSettingsReader());
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>();
             builder.RegisterInstance(AuthenticationServerConfiguration.Settings).As<IAuthenticationServerConfiguration>();
-            builder.RegisterInstance(FederatedAuthenticationConfiguration.Settings).As<IFederatedAuthenticationConfiguration>();
+            builder.Register(CreateFederatedAuthenticationConfiguration).SingleInstance().As<IFederatedAuthenticationConfiguration>();
             builder.Register(CreateAuthenticatedUserContext).SingleInstance().As<IAuthenticatedUserContext>();
+        }
+
+        private static IFederatedAuthenticationConfiguration CreateFederatedAuthenticationConfiguration(IComponentContext componentContext)
+        {
+            return FederatedAuthenticationConfiguration.Settings;
         }
 
         private static IAuthenticatedUserContext CreateAuthenticatedUserContext(IComponentContext componentContext)
