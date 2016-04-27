@@ -28,13 +28,6 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["includeAllClaimsForUser"] = value; }
         }
 
-        [ConfigurationProperty("enabled", IsRequired = false, DefaultValue = true)]
-        public bool Enabled
-        {
-            get { return (bool) this["enabled"]; }
-            set { this["enabled"] = value; }
-        }
-
         protected override void PostDeserialize()
         {
             if (string.IsNullOrWhiteSpace(Name))

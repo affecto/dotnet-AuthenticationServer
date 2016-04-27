@@ -31,13 +31,6 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["secret"] = value; }
         }
 
-        [ConfigurationProperty("enabled", IsRequired = false, DefaultValue = true)]
-        public bool Enabled
-        {
-            get { return (bool) this["enabled"]; }
-            set { this["enabled"] = value; }
-        }
-
         [ConfigurationProperty("flow", IsRequired = true)]
         public Flow Flow
         {

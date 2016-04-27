@@ -8,7 +8,6 @@ namespace Affecto.AuthenticationServer.Configuration
         string Id { get; }
         string Name { get; }
         string Secret { get; }
-        bool Enabled { get; }
         Flow Flow { get; }
         IReadOnlyCollection<string> AllowedScopes { get; } 
         TimeSpan AccessTokenLifetime { get; }

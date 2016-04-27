@@ -5,6 +5,5 @@ namespace Affecto.AuthenticationServer.Configuration
         string Name { get; }
         string DisplayName { get; }
         bool IncludeAllClaimsForUser { get; }
-        bool Enabled { get; }
     }
 }

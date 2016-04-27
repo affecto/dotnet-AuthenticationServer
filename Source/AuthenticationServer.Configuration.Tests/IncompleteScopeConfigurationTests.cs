@@ -36,13 +36,6 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
-        public void ScopeIsEnabledByDefault()
-        {
-            SetupAuthenticationServerConfiguration("ScopeIsEnabledByDefault.config");
-            Assert.IsTrue(authenticationServerConfiguration.Scopes.Single().Enabled);
-        }
-
-        [TestMethod]
         public void ScopeDoesNotIncludeAllClaimsForUserByDefault()
         {
             SetupAuthenticationServerConfiguration("ScopeDoesNotIncludeAllClaimsForUserByDefault.config");
