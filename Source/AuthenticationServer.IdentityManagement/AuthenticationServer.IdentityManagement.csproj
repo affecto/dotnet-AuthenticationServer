@@ -46,6 +46,10 @@
       <HintPath>..\packages\Affecto.Authentication.Passwords.1.0.0\lib\net45\Affecto.Authentication.Passwords.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Affecto.AuthenticationServer.Claims, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.AuthenticationServer.Claims.2.0.0\lib\net45\Affecto.AuthenticationServer.Claims.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Affecto.Configuration.Extensions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Affecto.Configuration.Extensions.2.0.0\lib\net40\Affecto.Configuration.Extensions.dll</HintPath>
       <Private>True</Private>
@@ -142,8 +146,8 @@
       <HintPath>..\packages\EntityFramework6.Npgsql.3.0.3\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="IdentityServer3, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IdentityServer3.2.2.1\lib\net45\IdentityServer3.dll</HintPath>
+    <Reference Include="IdentityServer3, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityServer3.2.5.0\lib\net45\IdentityServer3.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -164,6 +168,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.Transactions" />
@@ -176,18 +181,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaimsIdentityBuilder.cs" />
+    <Compile Include="Configuration\IdentityManagementConfiguration.cs" />
+    <Compile Include="Configuration\IIdentityManagementConfiguration.cs" />
     <Compile Include="IdentityManagementModule.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuthenticationServer.IdentityManagement.nuspec" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.Claims\AuthenticationServer.Claims.csproj">
-      <Project>{1EA45165-C7F1-4AF6-B394-EDAC5AAECCF9}</Project>
-      <Name>AuthenticationServer.Claims</Name>
+    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
+      <Project>{59bdf55c-4c01-4cb6-84f4-a03a1376a4e6}</Project>
+      <Name>AuthenticationServer.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

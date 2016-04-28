@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using Affecto.Authentication.Claims;
 using Affecto.AuthenticationServer.Configuration;
+using Affecto.AuthenticationServer.Infrastructure.Configuration;
 using Affecto.Logging;
 using Affecto.Logging.Log4Net;
 using Autofac;
@@ -13,13 +14,16 @@ namespace Affecto.AuthenticationServer
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-
             builder.RegisterModule(new ConfigurationSettingsReader());
-
-            builder.RegisterInstance(AuthenticationServerConfiguration.Settings).As<IAuthenticationServerConfiguration>();
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>();
-
+            builder.RegisterInstance(AuthenticationServerConfiguration.Settings).As<IAuthenticationServerConfiguration>();
+            builder.Register(CreateFederatedAuthenticationConfiguration).SingleInstance().As<IFederatedAuthenticationConfiguration>();
             builder.Register(CreateAuthenticatedUserContext).SingleInstance().As<IAuthenticatedUserContext>();
+        }
+
+        private static IFederatedAuthenticationConfiguration CreateFederatedAuthenticationConfiguration(IComponentContext componentContext)
+        {
+            return FederatedAuthenticationConfiguration.Settings;
         }
 
         private static IAuthenticatedUserContext CreateAuthenticatedUserContext(IComponentContext componentContext)

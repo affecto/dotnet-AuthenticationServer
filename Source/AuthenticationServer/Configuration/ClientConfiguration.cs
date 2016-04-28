@@ -31,13 +31,6 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["secret"] = value; }
         }
 
-        [ConfigurationProperty("enabled", IsRequired = false, DefaultValue = true)]
-        public bool Enabled
-        {
-            get { return (bool) this["enabled"]; }
-            set { this["enabled"] = value; }
-        }
-
         [ConfigurationProperty("flow", IsRequired = true)]
         public Flow Flow
         {
@@ -50,6 +43,13 @@ namespace Affecto.AuthenticationServer.Configuration
         {
             get { return (TimeSpan) this["accessTokenLifetime"]; }
             set { this["accessTokenLifetime"] = value; }
+        }
+
+        [ConfigurationProperty("redirectUri", IsRequired = false)]
+        public Uri RedirectUri
+        {
+            get { return (Uri) this["redirectUri"]; }
+            set { this["redirectUri"] = value; }
         }
 
         public IReadOnlyCollection<string> AllowedScopes
@@ -85,6 +85,10 @@ namespace Affecto.AuthenticationServer.Configuration
             if (!(this["accessTokenLifetime"] is TimeSpan))
             {
                 throw new ConfigurationErrorsException($"Client access token lifetime is required for client '{Id}'.");
+            }
+            if (RedirectUri != null && RedirectUri.OriginalString == string.Empty)
+            {
+                RedirectUri = null;
             }
         }
     }

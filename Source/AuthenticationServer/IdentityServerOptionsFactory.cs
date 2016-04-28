@@ -1,5 +1,10 @@
-﻿using Affecto.AuthenticationServer.Configuration;
+﻿using System.Configuration;
+using System.Security.Claims;
+using Affecto.AuthenticationServer.Configuration;
 using IdentityServer3.Core.Configuration;
+using Kentor.AuthServices.Owin;
+using Owin;
+using Microsoft.Owin.Security;
 
 namespace Affecto.AuthenticationServer
 {
@@ -14,8 +19,16 @@ namespace Affecto.AuthenticationServer
                 SiteName = "Authentication Server",
                 SigningCertificate = certificate.Load(),
                 Factory = serviceFactory,
-                RequireSsl = configuration.RequireHttps
+                RequireSsl = configuration.RequireHttps,
             };
+
+            if (IsKentorAuthServicesConfigured())
+            {
+                options.AuthenticationOptions = new IdentityServer3.Core.Configuration.AuthenticationOptions
+                {
+                    IdentityProviders = ConfigureIdentityProviders
+                };
+            }
 
             if (configuration.PublicOrigin != null)
             {
@@ -29,6 +42,22 @@ namespace Affecto.AuthenticationServer
             }
 
             return options;
+        }
+
+        public static void ConfigureIdentityProviders(IAppBuilder app, string signInAsType)
+        {
+            var authServicesOptions = new KentorAuthServicesAuthenticationOptions(true)
+            {
+                SignInAsAuthenticationType = signInAsType,
+                AuthenticationType = "saml" // this is the "idp" - identity provider - that you can refer to throughout identity server
+            };
+            app.SetDefaultSignInAsAuthenticationType(AuthenticationTypes.Federation);
+            app.UseKentorAuthServicesAuthentication(authServicesOptions);
+        }
+
+        private static bool IsKentorAuthServicesConfigured()
+        {
+            return ConfigurationManager.GetSection("kentor.authServices") != null && ConfigurationManager.GetSection("system.identityModel") != null;
         }
     }
 }
