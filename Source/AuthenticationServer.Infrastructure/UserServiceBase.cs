@@ -68,6 +68,10 @@ namespace Affecto.AuthenticationServer.Infrastructure
                 CreateOrUpdateExternallyAuthenticatedUser(userAccountName.Value, userDisplayName.Value, userGroups.Select(c => c.Value));
                 context.AuthenticateResult = CreateAuthenticateResult(userAccountName.Value, AuthenticationTypes.Federation, context.SignInMessage.IdP);
             }
+            else
+            {
+                context.AuthenticateResult = new AuthenticateResult("One or more required claims were missing from the IDP's message.");
+            }
 
             return Task.FromResult(0);
         }

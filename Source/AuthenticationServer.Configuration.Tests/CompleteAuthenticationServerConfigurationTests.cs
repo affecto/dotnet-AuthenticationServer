@@ -82,7 +82,6 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
             Assert.AreEqual("FirstScope", scope.Name);
             Assert.AreEqual("First Scope", scope.DisplayName);
             Assert.IsTrue(scope.IncludeAllClaimsForUser);
-            Assert.IsFalse(scope.Enabled);
         }
 
         [TestMethod]
@@ -97,7 +96,6 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
             Assert.AreEqual("9809DBC8-E72B-47EC-BE4F-42122C2965E1", client.Secret);
             Assert.AreEqual(Flow.ResourceOwner, client.Flow);
             Assert.AreEqual(new TimeSpan(23, 59, 59), client.AccessTokenLifetime);
-            Assert.IsFalse(client.Enabled);
             Assert.AreEqual(new Uri("http://localhost:49612/"), client.RedirectUri);
 
             Assert.AreEqual(1, client.AllowedScopes.Count);

@@ -139,7 +139,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
         }
 
         [TestMethod]
-        public void EmptyResultIsReturnedWhenFederatedAuthenticationHasNoUserAccountNameClaim()
+        public void ErrorMessageIsReturnedWhenFederatedAuthenticationHasNoUserAccountNameClaim()
         {
             const string userAccountNameClaim = "account";
             const string userDisplayNameClaim = "display";
@@ -152,11 +152,11 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 
             Task task = sut.AuthenticateExternalAsync(context);
 
-            AssertEmptyResult(task, context.AuthenticateResult);
+            AssertErrorMessage(task, context.AuthenticateResult);
         }
 
         [TestMethod]
-        public void EmptyResultIsReturnedWhenFederatedAuthenticationHasNoUserDisplayNameClaim()
+        public void ErrorMessageIsReturnedWhenFederatedAuthenticationHasNoUserDisplayNameClaim()
         {
             const string userAccountNameClaim = "account";
             const string userDisplayNameClaim = "display";
@@ -169,7 +169,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 
             Task task = sut.AuthenticateExternalAsync(context);
 
-            AssertEmptyResult(task, context.AuthenticateResult);
+            AssertErrorMessage(task, context.AuthenticateResult);
         }
 
         [TestMethod]
@@ -232,6 +232,13 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
         {
             Assert.IsNotNull(task);
             Assert.IsNull(result);
+        }
+
+        private void AssertErrorMessage(Task task, AuthenticateResult result)
+        {
+            Assert.IsNotNull(task);
+            Assert.IsNotNull(result);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(result.ErrorMessage));
         }
 
         private static void AssertAuthenticatedUser(Task task, AuthenticateResult result)

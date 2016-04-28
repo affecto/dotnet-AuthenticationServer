@@ -78,13 +78,6 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
-        public void ClientIsEnabledByDefault()
-        {
-            SetupAuthenticationServerConfiguration("ClientIsEnabledByDefault.config");
-            Assert.IsTrue(authenticationServerConfiguration.Clients.Single().Enabled);
-        }
-
-        [TestMethod]
         [ExpectedException(typeof(ConfigurationErrorsException))]
         public void ClientAllowedScopeNameCanNotBeEmpty()
         {
