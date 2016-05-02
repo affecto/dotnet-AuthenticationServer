@@ -58,36 +58,36 @@
       <HintPath>..\packages\Affecto.EntityFramework.PostgreSql.2.0.0\lib\net45\Affecto.EntityFramework.PostgreSql.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.ApplicationServices, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Autofac.8.0.0\lib\net451\Affecto.IdentityManagement.ApplicationServices.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.ApplicationServices, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Autofac.9.1.0\lib\net451\Affecto.IdentityManagement.ApplicationServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Autofac, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Autofac.8.0.0\lib\net451\Affecto.IdentityManagement.Autofac.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Autofac, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Autofac.9.1.0\lib\net451\Affecto.IdentityManagement.Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Commanding, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.0.0\lib\net451\Affecto.IdentityManagement.Commanding.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Commanding, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.2.0\lib\net451\Affecto.IdentityManagement.Commanding.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Interfaces, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Interfaces.8.0.0\lib\net451\Affecto.IdentityManagement.Interfaces.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Interfaces, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Interfaces.9.1.0\lib\net451\Affecto.IdentityManagement.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Querying, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.0.0\lib\net451\Affecto.IdentityManagement.Querying.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Querying, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.2.0\lib\net451\Affecto.IdentityManagement.Querying.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Store, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.0.0\lib\net451\Affecto.IdentityManagement.Store.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Store, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.2.0\lib\net451\Affecto.IdentityManagement.Store.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Store.EntityFramework, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.0.0\lib\net451\Affecto.IdentityManagement.Store.EntityFramework.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Store.EntityFramework, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.2.0\lib\net451\Affecto.IdentityManagement.Store.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Store.PostgreSql, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.0.0\lib\net451\Affecto.IdentityManagement.Store.PostgreSql.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Store.PostgreSql, Version=8.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Store.PostgreSql.8.2.0\lib\net451\Affecto.IdentityManagement.Store.PostgreSql.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Affecto.Mapping, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

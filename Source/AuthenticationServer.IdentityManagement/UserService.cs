@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using Affecto.AuthenticationServer.IdentityManagement.Configuration;
 using Affecto.AuthenticationServer.Infrastructure;
@@ -39,7 +40,8 @@ namespace Affecto.AuthenticationServer.IdentityManagement
             {
                 if (identityManagementConfiguration.Value.AutoCreateUser)
                 {
-                    userService.AddUser(accountName, AccountType.Federated, displayName, groups);
+                    IEnumerable<KeyValuePair<string, string>> customProperties = CreateCustomProperties();
+                    userService.AddUser(accountName, AccountType.Federated, displayName, groups, customProperties);
                 }
             }
             else
@@ -70,6 +72,11 @@ namespace Affecto.AuthenticationServer.IdentityManagement
         protected override bool IsMatchingPassword(string userName, string password)
         {
             return userService.IsMatchingPassword(userName, password);
+        }
+
+        private IEnumerable<KeyValuePair<string, string>> CreateCustomProperties()
+        {
+            return identityManagementConfiguration.Value.NewUserCustomProperties.Select(customProperty => new KeyValuePair<string, string>(customProperty.Name, customProperty.Value));
         }
     }
 }

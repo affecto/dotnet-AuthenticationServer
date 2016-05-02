@@ -15,7 +15,6 @@ using IdentityServer3.Core.Extensions;
 using IdentityServer3.Core.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
-using ICustomProperty = Affecto.IdentityManagement.Interfaces.Model.ICustomProperty;
 
 namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 {
@@ -27,7 +26,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 
         private IUser expectedUser;
         private IAccount expectedAccount;
-        private ICustomProperty expectedCustomProperty;
+        private Affecto.IdentityManagement.Interfaces.Model.ICustomProperty expectedCustomProperty;
         private IPermission expectedPermission;
         private IRole expectedRole;
         private IGroup expectedGroup;
@@ -45,7 +44,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
             expectedAccount.Name.Returns(AccountName);
             expectedAccount.Type.Returns(AccountType.Password);
 
-            expectedCustomProperty = Substitute.For<ICustomProperty>();
+            expectedCustomProperty = Substitute.For<Affecto.IdentityManagement.Interfaces.Model.ICustomProperty>();
             expectedCustomProperty.Name.Returns("CustomClaim");
             expectedCustomProperty.Value.Returns("ThisIsValue");
 
@@ -70,7 +69,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
             expectedUser.Id.Returns(Guid.NewGuid());
             expectedUser.Name.Returns("Test User");
             expectedUser.Accounts.Returns(new List<IAccount> { expectedAccount });
-            expectedUser.CustomProperties.Returns(new List<ICustomProperty> { expectedCustomProperty });
+            expectedUser.CustomProperties.Returns(new List<Affecto.IdentityManagement.Interfaces.Model.ICustomProperty> { expectedCustomProperty });
             expectedUser.Roles.Returns(new List<IRole> { expectedRole });
             expectedUser.Groups.Returns(new List<IGroup> { expectedGroup });
             expectedUser.Organizations.Returns(new List<IOrganization> { expectedOrganization });
@@ -200,7 +199,33 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 
             sut.AuthenticateExternalAsync(context);
 
-            identityManagementUserService.Received(1).AddUser(expectedAccount.Name, AccountType.Federated, userDisplayName, Arg.Any<IEnumerable<string>>());
+            identityManagementUserService.Received(1).AddUser(expectedAccount.Name, AccountType.Federated, userDisplayName, Arg.Any<IEnumerable<string>>(),
+                Arg.Any<IEnumerable<KeyValuePair<string, string>>>());
+        }
+
+        [TestMethod]
+        public void ConfiguredNewUserCustomPropertiesAreAddedWhenFederadedAuthenticationSucceeds()
+        {
+            const string customProperty1Name = "prop1";
+            const string customProperty2Name = "prop2";
+            const string customProperty1Value = "value1";
+            const string customProperty2Value = "value2";
+            List<Configuration.ICustomProperty> configuredCustomProperties = new List<Configuration.ICustomProperty>
+            {
+                CreateCustomProperty(customProperty1Name, customProperty1Value),
+                CreateCustomProperty(customProperty2Name, customProperty2Value)
+            };
+
+            identityManagementConfiguration.NewUserCustomProperties.Returns(configuredCustomProperties);
+            ExternalAuthenticationContext context = CreateSuccessfulAuthenticationContext("Ted Tester");
+            identityManagementUserService.IsExistingUserAccount(expectedAccount.Name, AccountType.Federated).Returns(false);
+            identityManagementConfiguration.AutoCreateUser.Returns(true);
+
+            sut.AuthenticateExternalAsync(context);
+
+            identityManagementUserService.Received(1).AddUser(Arg.Any<string>(), Arg.Any<AccountType>(), Arg.Any<string>(), Arg.Any<IEnumerable<string>>(),
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(properties => properties.Any(p => p.Key.Equals(customProperty1Name) && p.Value.Equals(customProperty1Value)) &&
+                properties.Any(p => p.Key.Equals(customProperty2Name) && p.Value.Equals(customProperty2Value)) && properties.Count() == 2));
         }
 
         [TestMethod]
@@ -293,6 +318,14 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
                     IdP = "idsrv"
                 }
             };
+        }
+
+        private static Configuration.ICustomProperty CreateCustomProperty(string name, string value)
+        {
+            Configuration.ICustomProperty property = Substitute.For<Configuration.ICustomProperty>();
+            property.Name.Returns(name);
+            property.Value.Returns(value);
+            return property;
         }
     }
 }
