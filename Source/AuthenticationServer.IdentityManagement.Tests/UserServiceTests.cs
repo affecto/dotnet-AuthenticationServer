@@ -81,8 +81,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
             identityManagementUserService.GetUser(AccountName, AccountType.Password).Returns(expectedUser);
             identityManagementUserService.IsMatchingPassword(AccountName, Password).Returns(true);
 
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), 
-                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration),
+            sut = new UserService(identityManagementUserService, new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration),
                 new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
@@ -98,16 +97,14 @@ namespace Affecto.AuthenticationServer.IdentityManagement.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void IdentityManagementConfigurationCannotBeNull()
         {
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), null,
-                new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
+            sut = new UserService(identityManagementUserService, null, new Lazy<IFederatedAuthenticationConfiguration>(() => federatedAuthenticationConfiguration));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void FederatedAuthenticationConfigurationCannotBeNull()
         {
-            sut = new UserService(new Lazy<IUserService>(() => identityManagementUserService), 
-                new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration), null);
+            sut = new UserService(identityManagementUserService, new Lazy<IIdentityManagementConfiguration>(() => identityManagementConfiguration), null);
         }
 
         [TestMethod]

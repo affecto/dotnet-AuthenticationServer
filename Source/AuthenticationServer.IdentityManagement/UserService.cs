@@ -13,10 +13,10 @@ namespace Affecto.AuthenticationServer.IdentityManagement
 {
     internal class UserService : UserServiceBase
     {
-        private readonly Lazy<IUserService> userService;
+        private readonly IUserService userService;
         private readonly Lazy<IIdentityManagementConfiguration> identityManagementConfiguration;
 
-        public UserService(Lazy<IUserService> userService, Lazy<IIdentityManagementConfiguration> identityManagementConfiguration, 
+        public UserService(IUserService userService, Lazy<IIdentityManagementConfiguration> identityManagementConfiguration, 
             Lazy<IFederatedAuthenticationConfiguration> federatedAuthenticationConfiguration)
             : base(federatedAuthenticationConfiguration)
         {
@@ -35,22 +35,22 @@ namespace Affecto.AuthenticationServer.IdentityManagement
 
         protected override void CreateOrUpdateExternallyAuthenticatedUser(string accountName, string displayName, IEnumerable<string> groups)
         {
-            if (!userService.Value.IsExistingUserAccount(accountName, AccountType.Federated))
+            if (!userService.IsExistingUserAccount(accountName, AccountType.Federated))
             {
                 if (identityManagementConfiguration.Value.AutoCreateUser)
                 {
-                    userService.Value.AddUser(accountName, AccountType.Federated, displayName, groups);
+                    userService.AddUser(accountName, AccountType.Federated, displayName, groups);
                 }
             }
             else
             {
-                userService.Value.UpdateUserGroupsAndRoles(accountName, AccountType.Federated, groups);
+                userService.UpdateUserGroupsAndRoles(accountName, AccountType.Federated, groups);
             }
         }
 
         protected override AuthenticateResult CreateAuthenticateResult(string userName, string authenticationType, string identityProvider = "idsrv")
         {
-            var identityBuilder = new ClaimsIdentityBuilder(userService.Value);
+            var identityBuilder = new ClaimsIdentityBuilder(userService);
             ClaimsIdentity identity;
             switch (authenticationType)
             {
@@ -69,7 +69,7 @@ namespace Affecto.AuthenticationServer.IdentityManagement
 
         protected override bool IsMatchingPassword(string userName, string password)
         {
-            return userService.Value.IsMatchingPassword(userName, password);
+            return userService.IsMatchingPassword(userName, password);
         }
     }
 }
