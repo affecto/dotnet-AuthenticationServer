@@ -181,6 +181,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaimsIdentityBuilder.cs" />
+    <Compile Include="Configuration\CustomProperty.cs" />
+    <Compile Include="Configuration\ICustomProperty.cs" />
     <Compile Include="Configuration\IdentityManagementConfiguration.cs" />
     <Compile Include="Configuration\IIdentityManagementConfiguration.cs" />
     <Compile Include="IdentityManagementModule.cs" />

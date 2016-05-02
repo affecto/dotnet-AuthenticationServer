@@ -15,6 +15,7 @@ using IdentityServer3.Core.Extensions;
 using IdentityServer3.Core.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
+using ICustomProperty = Affecto.IdentityManagement.Interfaces.Model.ICustomProperty;
 
 namespace Affecto.AuthenticationServer.IdentityManagement.Tests
 {
