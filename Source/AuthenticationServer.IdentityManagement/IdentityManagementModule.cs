@@ -16,12 +16,17 @@ namespace Affecto.AuthenticationServer.IdentityManagement
         {
             base.Load(builder);
 
-            builder.RegisterInstance(IdentityManagementConfiguration.Settings).As<IIdentityManagementConfiguration>();
+            builder.Register(CreateIdentityManagementConfiguration).SingleInstance().As<IIdentityManagementConfiguration>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterModule<Affecto.IdentityManagement.Autofac.ModuleRegistration>();
             builder.RegisterModule<Affecto.IdentityManagement.Store.PostgreSql.ModuleRegistration>();
 
             builder.RegisterType<AuditTrailMock>().As<IAuditTrailService>();
+        }
+
+        private static IIdentityManagementConfiguration CreateIdentityManagementConfiguration(IComponentContext arg)
+        {
+            return IdentityManagementConfiguration.Settings;
         }
     }
 
