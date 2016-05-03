@@ -6,6 +6,6 @@
     <description>Plugin for Authentication Server supporting user account validation and building claims from Identity Management.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Added support for federated authentication.</releaseNotes>
+    <releaseNotes>Added support for configurable new user custom properties.</releaseNotes>
   </metadata>
 </package>
