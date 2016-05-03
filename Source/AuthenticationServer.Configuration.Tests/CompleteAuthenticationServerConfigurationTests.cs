@@ -44,14 +44,6 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
-        public void AutoCreateUserIsRetrieved()
-        {
-            SetupIdentityManagementConfiguration("ValidConfiguration.config");
-            bool result = identityManagementConfiguration.AutoCreateUser;
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
         public void SigningCertificateThumbprintIsRetrieved()
         {
             string result = authenticationServerConfiguration.SigningCertificateThumbprint;
