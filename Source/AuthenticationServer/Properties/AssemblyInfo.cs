@@ -5,9 +5,9 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyProduct("Affecto Authentication Server")]
 [assembly: AssemblyCompany("Affecto")]
 
-[assembly: AssemblyVersion("2.1.0.0")]
-[assembly: AssemblyFileVersion("2.1.0.0")]
-[assembly: AssemblyInformationalVersion("2.1.0")]
+[assembly: AssemblyVersion("2.1.1.0")]
+[assembly: AssemblyFileVersion("2.1.1.0")]
+[assembly: AssemblyInformationalVersion("2.1.1")]
 
 [assembly: InternalsVisibleTo("Affecto.AuthenticationServer.Tests")]
 [assembly: InternalsVisibleTo("Affecto.AuthenticationServer.Configuration.Tests")]
