@@ -47,8 +47,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\AuthenticationServer.Configuration.Tests\bin\Debug\Affecto.AuthenticationServer.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Affecto.IdentityManagement.Interfaces, Version=9.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Affecto.IdentityManagement.Interfaces.9.1.0\lib\net451\Affecto.IdentityManagement.Interfaces.dll</HintPath>
+    <Reference Include="Affecto.IdentityManagement.Interfaces, Version=9.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Affecto.IdentityManagement.Interfaces.9.2.0\lib\net451\Affecto.IdentityManagement.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IdentityServer3, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
