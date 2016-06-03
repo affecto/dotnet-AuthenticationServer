@@ -6,6 +6,6 @@
     <description>Authentication server supporting OAuth 2.0.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Updated Kentor AuthServices for better ADFS support.</releaseNotes>
+    <releaseNotes>Updated database related nuget packages.</releaseNotes>
   </metadata>
 </package>
