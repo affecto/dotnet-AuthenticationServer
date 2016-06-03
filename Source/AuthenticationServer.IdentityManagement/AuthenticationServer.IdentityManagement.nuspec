@@ -6,6 +6,6 @@
     <description>Plugin for Authentication Server supporting user account validation and building claims from Identity Management.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Updated Kentor AuthServices for better ADFS support.</releaseNotes>
+    <releaseNotes>Update Affecto Identity Management.</releaseNotes>
   </metadata>
 </package>
