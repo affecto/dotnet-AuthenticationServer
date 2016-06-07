@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Affecto.Configuration.Extensions;
+using IdentityServer3.Core.Models;
 
 namespace Affecto.AuthenticationServer.Configuration
 {
@@ -132,7 +133,7 @@ namespace Affecto.AuthenticationServer.Configuration
             {
                 foreach (string allowedScope in client.AllowedScopes)
                 {
-                    if (Scopes.All(s => s.Name != allowedScope))
+                    if (Scopes.All(s => s.Name != allowedScope) && StandardScopes.All.All(s => s.Name != allowedScope))
                     {
                         throw new ConfigurationErrorsException($"Allowed scope '{allowedScope}' of client '{client.Id}' does not match to configured scopes.");
                     }

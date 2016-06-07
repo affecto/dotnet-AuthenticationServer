@@ -28,7 +28,7 @@ namespace Affecto.AuthenticationServer.Configuration
                 Flow = (Flows) Enum.Parse(typeof(Flows), client.Flow.ToString()),
                 AccessTokenLifetime = (int) client.AccessTokenLifetime.TotalSeconds,
                 Enabled = true,
-                AllowedScopes = client.AllowedScopes.ToList(),
+                AllowedScopes = StandardScopes.All.Select(o => o.Name).Concat(client.AllowedScopes).ToList(),
                 RedirectUris = client.RedirectUri != null ? new List<string> { client.RedirectUri.OriginalString } : null,
                 RequireConsent = false
             }).ToList();

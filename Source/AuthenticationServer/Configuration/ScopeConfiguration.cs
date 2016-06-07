@@ -1,5 +1,7 @@
 using System.Configuration;
 using Affecto.Configuration.Extensions;
+using IdentityServer3.Core.Models;
+using System.Linq;
 
 namespace Affecto.AuthenticationServer.Configuration
 {
@@ -30,6 +32,10 @@ namespace Affecto.AuthenticationServer.Configuration
 
         protected override void PostDeserialize()
         {
+            if (StandardScopes.All.Any(s => s.Name == Name))
+            {
+                throw new ConfigurationErrorsException($"Configured scope '{Name}' is a standard scope that is already included.");
+            }
             if (string.IsNullOrWhiteSpace(Name))
             {
                 throw new ConfigurationErrorsException("Scope name is required.");
