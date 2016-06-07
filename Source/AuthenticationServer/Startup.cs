@@ -2,8 +2,10 @@
 using Affecto.Logging;
 using Autofac;
 using IdentityServer3.Core.Configuration;
+using IdentityServer3.Core.Models;
 using IdentityServer3.Core.Services;
 using Owin;
+using System.Linq;
 
 namespace Affecto.AuthenticationServer
 {
@@ -26,7 +28,7 @@ namespace Affecto.AuthenticationServer
 
                 var serviceFactory = new IdentityServerServiceFactory()
                     .UseInMemoryClients(configuration.Clients.MapToIdentityServerClients())
-                    .UseInMemoryScopes(configuration.Scopes.MapToIdentityServerScopes());
+                    .UseInMemoryScopes(StandardScopes.All.Concat(configuration.Scopes.MapToIdentityServerScopes()));
 
                 serviceFactory.UserService = new Registration<IUserService>(resolver => container.Resolve<IUserService>());
                 serviceFactory.CorsPolicyService = new Registration<ICorsPolicyService>(CorsPolicyServiceFactory.Create(configuration));
