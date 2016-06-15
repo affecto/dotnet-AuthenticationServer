@@ -197,9 +197,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
-      <Project>{59bdf55c-4c01-4cb6-84f4-a03a1376a4e6}</Project>
-      <Name>AuthenticationServer.Infrastructure</Name>
+    <ProjectReference Include="..\AuthenticationServer.Plugins.Infrastructure\AuthenticationServer.Plugins.Infrastructure.csproj">
+      <Project>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</Project>
+      <Name>AuthenticationServer.Plugins.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,7 +8,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using Affecto.Authentication.Claims;
 using Affecto.AuthenticationServer.IdentityManagement.Configuration;
-using Affecto.AuthenticationServer.Infrastructure.Configuration;
+using Affecto.AuthenticationServer.Plugins.Infrastructure.Configuration;
 using Affecto.IdentityManagement.Interfaces;
 using Affecto.IdentityManagement.Interfaces.Model;
 using IdentityServer3.Core.Extensions;

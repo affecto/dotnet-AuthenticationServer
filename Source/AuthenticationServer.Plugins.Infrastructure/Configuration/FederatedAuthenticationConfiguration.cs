@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Affecto.AuthenticationServer.Infrastructure.Configuration
+namespace Affecto.AuthenticationServer.Plugins.Infrastructure.Configuration
 {
     public class FederatedAuthenticationConfiguration : ConfigurationSection, IFederatedAuthenticationConfiguration
     {

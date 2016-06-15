@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Claims
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Configuration.Tests", "AuthenticationServer.Configuration.Tests\AuthenticationServer.Configuration.Tests.csproj", "{BACA9C64-A8C2-452A-9341-264CC8CB5797}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Infrastructure", "AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj", "{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationServer.Plugins.Infrastructure", "AuthenticationServer.Plugins.Infrastructure\AuthenticationServer.Plugins.Infrastructure.csproj", "{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

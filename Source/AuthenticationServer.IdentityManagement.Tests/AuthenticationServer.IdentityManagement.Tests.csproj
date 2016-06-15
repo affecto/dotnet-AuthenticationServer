@@ -43,10 +43,6 @@
       <HintPath>..\packages\Affecto.Authentication.Claims.2.2.0\lib\net45\Affecto.Authentication.Claims.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Affecto.AuthenticationServer.Configuration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\AuthenticationServer.Configuration.Tests\bin\Debug\Affecto.AuthenticationServer.Configuration.dll</HintPath>
-    </Reference>
     <Reference Include="Affecto.IdentityManagement.Interfaces, Version=9.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Affecto.IdentityManagement.Interfaces.9.2.0\lib\net451\Affecto.IdentityManagement.Interfaces.dll</HintPath>
       <Private>True</Private>
@@ -90,9 +86,9 @@
       <Project>{8D982C5D-98EC-4337-A46C-8545F92F5F65}</Project>
       <Name>AuthenticationServer.IdentityManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
+    <ProjectReference Include="..\AuthenticationServer.Plugins.Infrastructure\AuthenticationServer.Plugins.Infrastructure.csproj">
       <Project>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</Project>
-      <Name>AuthenticationServer.Infrastructure</Name>
+      <Name>AuthenticationServer.Plugins.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

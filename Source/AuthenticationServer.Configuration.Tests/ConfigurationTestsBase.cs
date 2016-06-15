@@ -1,6 +1,6 @@
 using System;
 using Affecto.AuthenticationServer.IdentityManagement.Configuration;
-using Affecto.AuthenticationServer.Infrastructure.Configuration;
+using Affecto.AuthenticationServer.Plugins.Infrastructure.Configuration;
 using Affecto.Testing.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

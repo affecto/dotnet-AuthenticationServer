@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using Affecto.Authentication.Claims;
 using Affecto.AuthenticationServer.Configuration;
-using Affecto.AuthenticationServer.Infrastructure.Configuration;
+using Affecto.AuthenticationServer.Plugins.Infrastructure.Configuration;
 using Affecto.Logging;
 using Affecto.Logging.Log4Net;
 using Autofac;

@@ -4,7 +4,6 @@ using System.Linq;
 using Affecto.AuditTrail.Interfaces;
 using Affecto.AuditTrail.Interfaces.Model;
 using Affecto.AuthenticationServer.IdentityManagement.Configuration;
-using Affecto.AuthenticationServer.Infrastructure.Configuration;
 using Autofac;
 using IdentityServer3.Core.Services;
 

@@ -219,12 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AuthenticationServer.IdentityManagement\AuthenticationServer.IdentityManagement.csproj">
-      <Project>{8d982c5d-98ec-4337-a46c-8545f92f5f65}</Project>
+      <Project>{8D982C5D-98EC-4337-A46C-8545F92F5F65}</Project>
       <Name>AuthenticationServer.IdentityManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
+    <ProjectReference Include="..\AuthenticationServer.Plugins.Infrastructure\AuthenticationServer.Plugins.Infrastructure.csproj">
       <Project>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</Project>
-      <Name>AuthenticationServer.Infrastructure</Name>
+      <Name>AuthenticationServer.Plugins.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\AuthenticationServer\AuthenticationServer.csproj">
       <Project>{42b49297-e203-4583-a759-921fffc14e11}</Project>

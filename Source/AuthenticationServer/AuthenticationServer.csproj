@@ -172,9 +172,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
+    <ProjectReference Include="..\AuthenticationServer.Plugins.Infrastructure\AuthenticationServer.Plugins.Infrastructure.csproj">
       <Project>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</Project>
-      <Name>AuthenticationServer.Infrastructure</Name>
+      <Name>AuthenticationServer.Plugins.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

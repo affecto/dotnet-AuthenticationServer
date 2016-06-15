@@ -7,8 +7,8 @@
     <ProjectGuid>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Affecto.AuthenticationServer.Infrastructure</RootNamespace>
-    <AssemblyName>Affecto.AuthenticationServer.Infrastructure</AssemblyName>
+    <RootNamespace>Affecto.AuthenticationServer.Plugins.Infrastructure</RootNamespace>
+    <AssemblyName>Affecto.AuthenticationServer.Plugins.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuthenticationServer.Plugins.Infrastructure.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

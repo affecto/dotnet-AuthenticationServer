@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Affecto.AuthenticationServer.Infrastructure.Configuration;
+using Affecto.AuthenticationServer.Plugins.Infrastructure.Configuration;
 using IdentityServer3.Core.Models;
 
-namespace Affecto.AuthenticationServer.Infrastructure
+namespace Affecto.AuthenticationServer.Plugins.Infrastructure
 {
     public abstract class UserServiceBase : IdentityServer3.Core.Services.Default.UserServiceBase
     {
