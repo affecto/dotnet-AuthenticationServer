@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Affecto.AuthenticationServer.Configuration.Tests
+namespace AuthenticationServer.Plugins.Infrastructure.Tests.Configuration
 {
     [TestClass]
     public class CompleteFederatedAuthenticationConfigurationTests : ConfigurationTestsBase
