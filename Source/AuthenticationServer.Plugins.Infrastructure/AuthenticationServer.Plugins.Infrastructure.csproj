@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Configuration\FederatedAuthenticationConfiguration.cs" />
     <Compile Include="Configuration\IFederatedAuthenticationConfiguration.cs" />
+    <Compile Include="FederatedAuthenticationUserServiceBase.cs" />
     <Compile Include="UserServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
