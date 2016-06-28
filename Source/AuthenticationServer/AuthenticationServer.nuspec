@@ -6,6 +6,6 @@
     <description>Authentication server supporting OAuth 2.0.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Updated database related nuget packages.</releaseNotes>
+    <releaseNotes>Split supporting packages to separate repositories.</releaseNotes>
   </metadata>
 </package>
