@@ -78,6 +78,13 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["publicOrigin"] = value; }
         }
 
+        [ConfigurationProperty("issuer", IsRequired = false)]
+        public Uri Issuer
+        {
+            get { return (Uri) this["issuer"]; }
+            set { this["issuer"] = value; }
+        }
+
         [ConfigurationProperty("allowedOrigins", IsRequired = true)]
         private string AllowedOriginsInternal
         {
@@ -122,6 +129,12 @@ namespace Affecto.AuthenticationServer.Configuration
             if (publicOrigin != null && (!(publicOrigin is Uri) || !Uri.IsWellFormedUriString(publicOrigin.ToString(), UriKind.Absolute)))
             {
                 throw new ConfigurationErrorsException("Public origin must be a well formed absolute URI.");
+            }
+
+            object issuer = this["issuer"];
+            if (issuer != null && (!(issuer is Uri) || !Uri.IsWellFormedUriString(issuer.ToString(), UriKind.Absolute)))
+            {
+                throw new ConfigurationErrorsException("Issuer must be a well formed absolute URI.");
             }
 
             CheckAllowedScopesMatch();

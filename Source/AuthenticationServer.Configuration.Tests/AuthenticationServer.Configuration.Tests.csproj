@@ -121,7 +121,13 @@
     <None Include="ConfigFiles\ClientSecretMissing.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ConfigFiles\IssuerIsNotUri.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ConfigFiles\PublicOriginIsNotUri.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\IssuerIsNullByDefault.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\PublicOriginIsNullByDefault.config">
