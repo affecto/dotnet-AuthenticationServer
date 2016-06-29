@@ -96,5 +96,19 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
             SetupAuthenticationServerConfiguration("PublicOriginIsNullByDefault.config");
             Assert.IsNull(authenticationServerConfiguration.PublicOrigin);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void IssuerIsNotUri()
+        {
+            SetupAuthenticationServerConfiguration("IssuerIsNotUri.config");
+        }
+
+        [TestMethod]
+        public void IssuerIsNullByDefault()
+        {
+            SetupAuthenticationServerConfiguration("IssuerIsNullByDefault.config");
+            Assert.IsNull(authenticationServerConfiguration.Issuer);
+        }
     }
 }

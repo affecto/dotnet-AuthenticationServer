@@ -16,5 +16,6 @@ namespace Affecto.AuthenticationServer.Configuration
         IReadOnlyCollection<IClient> Clients { get; }
         bool IsAllowedOrigin(string origin);
         Uri PublicOrigin { get; }
+        Uri Issuer { get; }
     }
 }

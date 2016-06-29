@@ -35,6 +35,11 @@ namespace Affecto.AuthenticationServer
                 options.PublicOrigin = configuration.PublicOrigin.ToString();
             }
 
+            if (configuration.Issuer != null)
+            {
+                options.IssuerUri = configuration.Issuer.ToString();
+            }
+
             if (configuration.SecondarySigningCertificateThumbprint != null)
             {
                 var secondaryCertificate = new Certificate(configuration.SigningCertificateStore, configuration.SecondarySigningCertificateThumbprint);

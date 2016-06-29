@@ -65,6 +65,13 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
+        public void IssuerIsRetrieved()
+        {
+            Uri result = authenticationServerConfiguration.Issuer;
+            Assert.AreEqual("http://someurl.com:12837/core/", result.ToString());
+        }
+
+        [TestMethod]
         public void ScopesAreRetrieved()
         {
             Assert.AreEqual(1, authenticationServerConfiguration.Scopes.Count);
