@@ -63,13 +63,6 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
-        public void AutoCreateIsDisabledByDefault()
-        {
-            SetupIdentityManagementConfiguration("AutoCreateIsDisabledByDefault.config");
-            Assert.IsFalse(identityManagementConfiguration.AutoCreateUser);
-        }
-
-        [TestMethod]
         public void SecondarySigningCertificateThumbprintIsNullByDefaultWhenMissing()
         {
             SetupAuthenticationServerConfiguration("SecondarySigningCertificateThumbprintIsMissing.config");
@@ -102,6 +95,20 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         {
             SetupAuthenticationServerConfiguration("PublicOriginIsNullByDefault.config");
             Assert.IsNull(authenticationServerConfiguration.PublicOrigin);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void IssuerIsNotUri()
+        {
+            SetupAuthenticationServerConfiguration("IssuerIsNotUri.config");
+        }
+
+        [TestMethod]
+        public void IssuerIsNullByDefault()
+        {
+            SetupAuthenticationServerConfiguration("IssuerIsNullByDefault.config");
+            Assert.IsNull(authenticationServerConfiguration.Issuer);
         }
     }
 }

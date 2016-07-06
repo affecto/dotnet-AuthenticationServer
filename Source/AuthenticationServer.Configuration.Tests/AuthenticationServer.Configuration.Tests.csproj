@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Affecto.AuthenticationServer.Configuration.Tests</RootNamespace>
     <AssemblyName>Affecto.AuthenticationServer.Configuration.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -64,10 +64,6 @@
     <Compile Include="IncompleteClientConfigurationTests.cs" />
     <Compile Include="IncompleteScopeConfigurationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CompleteFederatedAuthenticationConfigurationTests.cs" />
-    <Compile Include="IncompleteFederatedAuthenticationConfigurationTests.cs" />
-    <Compile Include="CompleteIdentityManagementConfigurationTests.cs" />
-    <Compile Include="IncompleteIdentityManagementConfigurationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -75,9 +71,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\AllowedOriginsMissing.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\AutoCreateIsDisabledByDefault.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\ClientAccessTokenLifetimeEmpty.config">
@@ -128,31 +121,13 @@
     <None Include="ConfigFiles\ClientSecretMissing.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="ConfigFiles\EmptyFederatedUserDisplayNameClaim.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\EmptyFederatedUserAccountNameClaim.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\EmptyIdentityManagementNewUserPropertyValue.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\MissingFederatedUserDisplayNameClaim.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\MissingFederatedUserAccountNameClaim.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\MissingFederatedGroupClaim.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\EmptyIdentityManagementNewUserPropertyName.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\MissingIdentityManagementNewUserPropertyValue.config">
+    <None Include="ConfigFiles\IssuerIsNotUri.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\PublicOriginIsNotUri.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\IssuerIsNullByDefault.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\PublicOriginIsNullByDefault.config">
@@ -203,13 +178,7 @@
     <None Include="ConfigFiles\SigningCertificateThumbprintMissing.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="ConfigFiles\EmptyFederatedGroupClaim.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="ConfigFiles\ClientRedirectUriMissing.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="ConfigFiles\MissingIdentityManagementNewUserPropertyName.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\ValidConfiguration.config">
@@ -218,14 +187,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticationServer.IdentityManagement\AuthenticationServer.IdentityManagement.csproj">
-      <Project>{8d982c5d-98ec-4337-a46c-8545f92f5f65}</Project>
-      <Name>AuthenticationServer.IdentityManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AuthenticationServer.Infrastructure\AuthenticationServer.Infrastructure.csproj">
-      <Project>{59BDF55C-4C01-4CB6-84F4-A03A1376A4E6}</Project>
-      <Name>AuthenticationServer.Infrastructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AuthenticationServer\AuthenticationServer.csproj">
       <Project>{42b49297-e203-4583-a759-921fffc14e11}</Project>
       <Name>AuthenticationServer</Name>
