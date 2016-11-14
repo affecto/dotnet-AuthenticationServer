@@ -6,6 +6,6 @@
     <description>Authentication server supporting OAuth 2.0.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Split supporting packages to separate repositories.</releaseNotes>
+    <releaseNotes>Changed minimum logging level to verbose to include plugin log messages.</releaseNotes>
   </metadata>
 </package>
