@@ -129,6 +129,7 @@
     <Compile Include="CertificateNotFoundException.cs" />
     <Compile Include="Certificate.cs" />
     <Compile Include="AuthenticationServerModule.cs" />
+    <Compile Include="Configuration\AllowedCustomGrantTypeConfiguration.cs" />
     <Compile Include="Configuration\AllowedScopeConfiguration.cs" />
     <Compile Include="Configuration\AuthenticationServerConfiguration.cs" />
     <Compile Include="Configuration\ClientConfiguration.cs" />

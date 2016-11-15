@@ -29,6 +29,7 @@ namespace Affecto.AuthenticationServer.Configuration
                 AccessTokenLifetime = (int) client.AccessTokenLifetime.TotalSeconds,
                 Enabled = true,
                 AllowedScopes = StandardScopes.All.Select(o => o.Name).Concat(client.AllowedScopes).ToList(),
+                AllowedCustomGrantTypes = client.AllowedCustomGrantTypes.ToList(),
                 RedirectUris = client.RedirectUri != null ? new List<string> { client.RedirectUri.OriginalString } : null,
                 RequireConsent = false
             }).ToList();
