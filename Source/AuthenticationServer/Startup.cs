@@ -1,4 +1,6 @@
-﻿using Affecto.AuthenticationServer.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using Affecto.AuthenticationServer.Configuration;
 using Affecto.Logging;
 using Autofac;
 using IdentityServer3.Core.Configuration;
@@ -32,6 +34,18 @@ namespace Affecto.AuthenticationServer
 
                 serviceFactory.UserService = new Registration<IUserService>(resolver => container.Resolve<IUserService>());
                 serviceFactory.CorsPolicyService = new Registration<ICorsPolicyService>(CorsPolicyServiceFactory.Create(configuration));
+
+                if (container.IsRegistered<ITokenService>())
+                {
+                    serviceFactory.TokenService =
+                        new Registration<ITokenService>(resolver => container.Resolve<ITokenService>(new PositionalParameter(0, resolver)));
+                }
+
+                IEnumerable<Func<ICustomGrantValidator>> customGrantValidatorFactories = container.Resolve<IEnumerable<Func<ICustomGrantValidator>>>();
+                foreach (Func<ICustomGrantValidator> validatorFactory in customGrantValidatorFactories)
+                {
+                    serviceFactory.CustomGrantValidators.Add(new Registration<ICustomGrantValidator>(resolver => validatorFactory()));
+                }
 
                 coreApp.UseIdentityServer(IdentityServerOptionsFactory.Create(configuration, serviceFactory));
             });

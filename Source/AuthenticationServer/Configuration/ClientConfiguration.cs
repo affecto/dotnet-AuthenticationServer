@@ -57,11 +57,23 @@ namespace Affecto.AuthenticationServer.Configuration
             get { return AllowedScopesInternal.Select(s => s.Name).ToList(); }
         }
 
+        public IReadOnlyCollection<string> AllowedCustomGrantTypes
+        {
+            get { return AllowedCustomGrantTypesInternal.Select(s => s.Name).ToList(); }
+        }
+
         [ConfigurationProperty("allowedScopes", IsDefaultCollection = true)]
         [ConfigurationCollection(typeof(ConfigurationElementCollection<ScopeConfiguration>), AddItemName = "allowedScope")]
         private ConfigurationElementCollection<AllowedScopeConfiguration> AllowedScopesInternal
         {
             get { return (ConfigurationElementCollection<AllowedScopeConfiguration>) base["allowedScopes"]; }
+        }
+
+        [ConfigurationProperty("allowedCustomGrantTypes", IsDefaultCollection = true)]
+        [ConfigurationCollection(typeof(ConfigurationElementCollection<AllowedCustomGrantTypeConfiguration>), AddItemName = "allowedCustomGrantType")]
+        private ConfigurationElementCollection<AllowedCustomGrantTypeConfiguration> AllowedCustomGrantTypesInternal
+        {
+            get { return (ConfigurationElementCollection<AllowedCustomGrantTypeConfiguration>) base["allowedCustomGrantTypes"]; }
         }
 
         protected override void PostDeserialize()
