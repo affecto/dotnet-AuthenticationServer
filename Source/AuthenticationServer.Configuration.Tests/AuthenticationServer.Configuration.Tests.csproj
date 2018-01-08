@@ -88,6 +88,9 @@
     <None Include="ConfigFiles\ClientAllowedScopeNameMissing.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ConfigFiles\ClientFlowDoesNotMatch.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ConfigFiles\ClientFlowEmpty.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -179,6 +182,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\ClientRedirectUriMissing.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\ClientAccessTokenTypeDoesNotMatch.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\ClientAccessTokenTypeEmpty.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ConfigFiles\ValidConfiguration.config">

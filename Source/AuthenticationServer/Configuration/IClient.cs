@@ -9,6 +9,7 @@ namespace Affecto.AuthenticationServer.Configuration
         string Name { get; }
         string Secret { get; }
         Flow Flow { get; }
+        AccessTokenType AccessTokenType { get; }
         IReadOnlyCollection<string> AllowedScopes { get; }
         IReadOnlyCollection<string> AllowedCustomGrantTypes { get; }
         TimeSpan AccessTokenLifetime { get; }

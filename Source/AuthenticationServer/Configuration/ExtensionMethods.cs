@@ -14,7 +14,9 @@ namespace Affecto.AuthenticationServer.Configuration
                 Name = scope.Name,
                 DisplayName = scope.DisplayName,
                 IncludeAllClaimsForUser = scope.IncludeAllClaimsForUser,
-                Enabled = true
+                ScopeSecrets = scope.ScopeSecrets.Select(s => new Secret(s.Sha256())).ToList(),
+                Enabled = true,
+                AllowUnrestrictedIntrospection = true
             }).ToList();
         }
 
@@ -26,6 +28,7 @@ namespace Affecto.AuthenticationServer.Configuration
                 ClientName = client.Name,
                 ClientSecrets = new List<Secret> { new Secret(client.Secret.Sha256()) },
                 Flow = (Flows) Enum.Parse(typeof(Flows), client.Flow.ToString()),
+                AccessTokenType = (IdentityServer3.Core.Models.AccessTokenType) Enum.Parse(typeof(IdentityServer3.Core.Models.AccessTokenType), client.AccessTokenType.ToString()),
                 AccessTokenLifetime = (int) client.AccessTokenLifetime.TotalSeconds,
                 Enabled = true,
                 AllowedScopes = StandardScopes.All.Select(o => o.Name).Concat(client.AllowedScopes).ToList(),

@@ -51,6 +51,13 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void ClientFlowDoesNotMatch()
+        {
+            SetupAuthenticationServerConfiguration("ClientFlowDoesNotMatch.config");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
         public void ClientFlowCanNotBeEmpty()
         {
             SetupAuthenticationServerConfiguration("ClientFlowEmpty.config");
@@ -61,6 +68,20 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         public void ClientFlowCanNotBeMissing()
         {
             SetupAuthenticationServerConfiguration("ClientFlowMissing.config");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void ClientAccessTokenTypeDoesNotMatch()
+        {
+            SetupAuthenticationServerConfiguration("ClientAccessTokenTypeDoesNotMatch.config");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ConfigurationErrorsException))]
+        public void ClientAccessTokenTypeCanNotBeEmpty()
+        {
+            SetupAuthenticationServerConfiguration("ClientAccessTokenTypeEmpty.config");
         }
 
         [TestMethod]

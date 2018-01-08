@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Affecto.AuthenticationServer.Configuration
 {
     public interface IScope
@@ -5,5 +7,6 @@ namespace Affecto.AuthenticationServer.Configuration
         string Name { get; }
         string DisplayName { get; }
         bool IncludeAllClaimsForUser { get; }
+        IReadOnlyCollection<string> ScopeSecrets { get; }
     }
 }

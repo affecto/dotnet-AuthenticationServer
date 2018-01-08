@@ -38,6 +38,13 @@ namespace Affecto.AuthenticationServer.Configuration
             set { this["flow"] = value; }
         }
 
+        [ConfigurationProperty("accessTokenType", IsRequired = false, DefaultValue = AccessTokenType.Jwt)]
+        public AccessTokenType AccessTokenType
+        {
+            get { return (AccessTokenType) this["accessTokenType"]; }
+            set { this["accessTokenType"] = value; }
+        }
+
         [ConfigurationProperty("accessTokenLifetime", IsRequired = true)]
         public TimeSpan AccessTokenLifetime
         {
@@ -93,6 +100,10 @@ namespace Affecto.AuthenticationServer.Configuration
             if (!(this["flow"] is Flow))
             {
                 throw new ConfigurationErrorsException($"Client flow is required for client '{Id}'.");
+            }
+            if (!(this["accessTokenType"] is AccessTokenType))
+            {
+                throw new ConfigurationErrorsException($"Access token type is required for client '{Id}'.");
             }
             if (!(this["accessTokenLifetime"] is TimeSpan))
             {
