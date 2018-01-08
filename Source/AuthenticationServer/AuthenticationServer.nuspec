@@ -6,6 +6,6 @@
     <description>Authentication server supporting OAuth 2.0.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Added the ability to register custom implementations of ITokenService and ICustomGrantValidators.</releaseNotes>
+    <releaseNotes>Clients can be configured to use reference tokens instead of access tokens. Scopes can be configured to have secrets.</releaseNotes>
   </metadata>
 </package>

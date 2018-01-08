@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Configuration;
 using Affecto.Configuration.Extensions;
 using IdentityServer3.Core.Models;
@@ -28,6 +30,17 @@ namespace Affecto.AuthenticationServer.Configuration
         {
             get { return (bool) this["includeAllClaimsForUser"]; }
             set { this["includeAllClaimsForUser"] = value; }
+        }
+
+        public IReadOnlyCollection<string> ScopeSecrets
+        {
+            get { return ScopeSecretsInternal.Split(new []{ ';' }, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim()).ToList(); }
+        }
+
+        [ConfigurationProperty("scopeSecrets", IsRequired = false, DefaultValue = "")]
+        private string ScopeSecretsInternal
+        {
+            get { return (string) this["scopeSecrets"]; }
         }
 
         protected override void PostDeserialize()

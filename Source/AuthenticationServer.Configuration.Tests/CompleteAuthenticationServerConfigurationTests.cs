@@ -74,32 +74,63 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         [TestMethod]
         public void ScopesAreRetrieved()
         {
-            Assert.AreEqual(1, authenticationServerConfiguration.Scopes.Count);
-            IScope scope = authenticationServerConfiguration.Scopes.Single();
+            Assert.AreEqual(2, authenticationServerConfiguration.Scopes.Count);
+            IScope firstScope = authenticationServerConfiguration.Scopes.First();
 
-            Assert.IsNotNull(scope);
-            Assert.AreEqual("FirstScope", scope.Name);
-            Assert.AreEqual("First Scope", scope.DisplayName);
-            Assert.IsTrue(scope.IncludeAllClaimsForUser);
+            Assert.IsNotNull(firstScope);
+            Assert.AreEqual("FirstScope", firstScope.Name);
+            Assert.AreEqual("First Scope", firstScope.DisplayName);
+            Assert.IsTrue(firstScope.IncludeAllClaimsForUser);
+
+            Assert.IsNotNull(firstScope.ScopeSecrets);
+            Assert.AreEqual(2, firstScope.ScopeSecrets.Count);
+            Assert.AreEqual("SomeSecret", firstScope.ScopeSecrets.First());
+            Assert.AreEqual("AnotherSecret", firstScope.ScopeSecrets.Last());
+
+            IScope secondScope = authenticationServerConfiguration.Scopes.Last();
+
+            Assert.IsNotNull(secondScope);
+            Assert.AreEqual("SecondScope", secondScope.Name);
+            Assert.AreEqual("Second Scope", secondScope.DisplayName);
+            Assert.IsFalse(secondScope.IncludeAllClaimsForUser);
+
+            Assert.IsNotNull(secondScope.ScopeSecrets);
+            Assert.AreEqual(0, secondScope.ScopeSecrets.Count);
         }
 
         [TestMethod]
         public void ClientsAreRetrieved()
         {
-            Assert.AreEqual(1, authenticationServerConfiguration.Clients.Count);
-            IClient client = authenticationServerConfiguration.Clients.Single();
+            Assert.AreEqual(2, authenticationServerConfiguration.Clients.Count);
+            IClient referenceClient = authenticationServerConfiguration.Clients.First();
 
-            Assert.IsNotNull(client);
-            Assert.AreEqual("SomeClient", client.Id);
-            Assert.AreEqual("Some Client", client.Name);
-            Assert.AreEqual("9809DBC8-E72B-47EC-BE4F-42122C2965E1", client.Secret);
-            Assert.AreEqual(Flow.ResourceOwner, client.Flow);
-            Assert.AreEqual(new TimeSpan(23, 59, 59), client.AccessTokenLifetime);
-            Assert.AreEqual(new Uri("http://localhost:49612/"), client.RedirectUri);
+            Assert.IsNotNull(referenceClient);
+            Assert.AreEqual("ReferenceClient", referenceClient.Id);
+            Assert.AreEqual("Reference Client", referenceClient.Name);
+            Assert.AreEqual("9809DBC8-E72B-47EC-BE4F-42122C2965E1", referenceClient.Secret);
+            Assert.AreEqual(Flow.ResourceOwner, referenceClient.Flow);
+            Assert.AreEqual(AccessTokenType.Reference, referenceClient.AccessTokenType);
+            Assert.AreEqual(new TimeSpan(23, 59, 59), referenceClient.AccessTokenLifetime);
+            Assert.AreEqual(new Uri("http://localhost:49612/"), referenceClient.RedirectUri);
 
-            Assert.AreEqual(1, client.AllowedScopes.Count);
-            string allowedScope = client.AllowedScopes.Single();
+            Assert.AreEqual(1, referenceClient.AllowedScopes.Count);
+            string allowedScope = referenceClient.AllowedScopes.Single();
             Assert.AreEqual("FirstScope", allowedScope);
+
+            IClient jwtClient = authenticationServerConfiguration.Clients.Last();
+
+            Assert.IsNotNull(jwtClient);
+            Assert.AreEqual("JwtClient", jwtClient.Id);
+            Assert.AreEqual("Jwt Client", jwtClient.Name);
+            Assert.AreEqual("9809DBC8-E72B-47EC-BE4F-42122C2965E1", jwtClient.Secret);
+            Assert.AreEqual(Flow.Implicit, jwtClient.Flow);
+            Assert.AreEqual(AccessTokenType.Jwt, jwtClient.AccessTokenType);
+            Assert.AreEqual(new TimeSpan(0, 10, 0), jwtClient.AccessTokenLifetime);
+            Assert.AreEqual(new Uri("http://localhost:49613/"), jwtClient.RedirectUri);
+
+            Assert.AreEqual(1, jwtClient.AllowedScopes.Count);
+            allowedScope = jwtClient.AllowedScopes.Single();
+            Assert.AreEqual("SecondScope", allowedScope);
         }
     }
 }
