@@ -6,6 +6,6 @@
     <description>Authentication server supporting OAuth 2.0.</description>
     <authors>Affecto</authors>
     <version>$version$</version>
-    <releaseNotes>Changed minimum logging level to verbose to include plugin log messages.</releaseNotes>
+    <releaseNotes>Added option to use multiple ADFS identityproviders by adding kentor.authServices.customProviders config section.</releaseNotes>
   </metadata>
 </package>

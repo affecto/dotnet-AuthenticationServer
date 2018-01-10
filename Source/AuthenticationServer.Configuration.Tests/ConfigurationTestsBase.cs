@@ -9,6 +9,7 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
     public abstract class ConfigurationTestsBase
     {
         protected IAuthenticationServerConfiguration authenticationServerConfiguration;
+        protected IKentorAuthServicesCustomProvidersConfiguration kentorAuthServicesCustomProvidersConfiguration;
 
         private readonly ConfigSectionReader configSectionReader =
             new ConfigSectionReader(Path.Combine(Environment.CurrentDirectory, "AuthenticationServer.Configuration.Tests"));
@@ -17,5 +18,11 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         {
             authenticationServerConfiguration = configSectionReader.GetConfigSection<AuthenticationServerConfiguration>(configFileName, "authenticationServer");
         }
+
+        protected void SetupKentorAuthServicesCustomProvidersConfiguration(string configFileName)
+        {
+            kentorAuthServicesCustomProvidersConfiguration = configSectionReader.GetConfigSection<KentorAuthServicesCustomProvidersConfiguration>(configFileName, "kentor.authServices.customProviders");
+        }
+
     }
 }

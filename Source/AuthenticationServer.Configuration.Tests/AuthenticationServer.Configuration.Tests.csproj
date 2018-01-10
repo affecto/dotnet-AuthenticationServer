@@ -59,9 +59,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CompleteAuthenticationServerConfigurationTests.cs" />
+    <Compile Include="CompleteKentorAuthServicesCustomProvidersConfigurationTests.cs" />
     <Compile Include="ConfigurationTestsBase.cs" />
     <Compile Include="IncompleteAuthenticationServerConfigurationTests.cs" />
     <Compile Include="IncompleteClientConfigurationTests.cs" />
+    <Compile Include="IncompleteKentorAuthServicesCustomProvidersConfigurationTests.cs" />
     <Compile Include="IncompleteScopeConfigurationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +126,9 @@
     <None Include="ConfigFiles\IssuerIsNotUri.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ConfigFiles\KentorCustomProvidersEntityIdEmpty.config" />
+    <None Include="ConfigFiles\KentorCustomProvidersEntityIdMissing.config" />
+    <None Include="ConfigFiles\KentorCustomProvidersIdpMissing.config" />
     <None Include="ConfigFiles\PublicOriginIsNotUri.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -184,6 +189,7 @@
     <None Include="ConfigFiles\ValidConfiguration.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ConfigFiles\ValidKentorCustomProvidersConfiguration.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

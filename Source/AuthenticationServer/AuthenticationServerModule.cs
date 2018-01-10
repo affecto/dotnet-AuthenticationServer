@@ -17,6 +17,7 @@ namespace Affecto.AuthenticationServer
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>();
             builder.RegisterInstance(AuthenticationServerConfiguration.Settings).As<IAuthenticationServerConfiguration>();
             builder.Register(CreateAuthenticatedUserContext).SingleInstance().As<IAuthenticatedUserContext>();
+            builder.RegisterInstance(KentorAuthServicesCustomProvidersConfiguration.Settings).As<IKentorAuthServicesCustomProvidersConfiguration>();
         }
 
         private static IAuthenticatedUserContext CreateAuthenticatedUserContext(IComponentContext componentContext)
