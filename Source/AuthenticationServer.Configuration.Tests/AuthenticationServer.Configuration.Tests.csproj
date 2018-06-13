@@ -133,6 +133,9 @@
     <None Include="ConfigFiles\PublicOriginIsNullByDefault.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ConfigFiles\PersistOperationalDataIsDisabledByDefault.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ConfigFiles\RequireHttpsIsEnabledByDefault.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

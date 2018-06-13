@@ -6,6 +6,7 @@ namespace Affecto.AuthenticationServer.Configuration
 {
     public interface IAuthenticationServerConfiguration
     {
+        bool PersistOperationalData { get; }
         bool RequireHttps { get; }
         string ServiceUserName { get; }
         IReadOnlyCollection<string> AllowedOrigins { get; }

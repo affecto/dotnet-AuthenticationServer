@@ -32,10 +32,17 @@ namespace Affecto.AuthenticationServer.Configuration
             return AllowedOrigins.Any(o => o.Equals(origin, StringComparison.InvariantCultureIgnoreCase) || o.Equals("*"));
         }
 
+        [ConfigurationProperty("persistOperationalData", IsRequired = false, DefaultValue = false)]
+        public bool PersistOperationalData
+        {
+            get { return (bool) this["persistOperationalData"]; }
+            set { this["persistOperationalData"] = value; }
+        }
+
         [ConfigurationProperty("requireHttps", IsRequired = false, DefaultValue = true)]
         public bool RequireHttps
         {
-            get { return (bool) this["requireHttps"]; }
+            get { return (bool)this["requireHttps"]; }
             set { this["requireHttps"] = value; }
         }
 

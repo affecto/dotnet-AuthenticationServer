@@ -1,11 +1,12 @@
-﻿using Affecto.AuthenticationServer.Configuration;
+﻿using System.Linq;
+using Affecto.AuthenticationServer.Configuration;
 using Affecto.Logging;
 using Autofac;
 using IdentityServer3.Core.Configuration;
 using IdentityServer3.Core.Models;
 using IdentityServer3.Core.Services;
+using IdentityServer3.EntityFramework;
 using Owin;
-using System.Linq;
 
 namespace Affecto.AuthenticationServer
 {
@@ -32,6 +33,15 @@ namespace Affecto.AuthenticationServer
 
                 serviceFactory.UserService = new Registration<IUserService>(resolver => container.Resolve<IUserService>());
                 serviceFactory.CorsPolicyService = new Registration<ICorsPolicyService>(CorsPolicyServiceFactory.Create(configuration));
+
+                if (configuration.PersistOperationalData)
+                {
+                    var efOptions = new EntityFrameworkServiceOptions { ConnectionString = "OperationalData" };
+                    serviceFactory.RegisterOperationalServices(efOptions);
+
+                    var cleanup = new TokenCleanup(efOptions, 3600);
+                    cleanup.Start();
+                }
 
                 coreApp.UseIdentityServer(IdentityServerOptionsFactory.Create(configuration, serviceFactory));
             });

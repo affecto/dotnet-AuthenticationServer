@@ -30,6 +30,13 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
+        public void PersistOperationalDataIsRetrieved()
+        {
+            bool result = authenticationServerConfiguration.PersistOperationalData;
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
         public void RequireHttpsIsRetrieved()
         {
             bool result = authenticationServerConfiguration.RequireHttps;

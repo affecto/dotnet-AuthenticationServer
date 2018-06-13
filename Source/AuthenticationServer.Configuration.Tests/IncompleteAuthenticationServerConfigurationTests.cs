@@ -77,6 +77,13 @@ namespace Affecto.AuthenticationServer.Configuration.Tests
         }
 
         [TestMethod]
+        public void PersistOperationalDataIsDisabledByDefault()
+        {
+            SetupAuthenticationServerConfiguration("PersistOperationalDataIsDisabledByDefault.config");
+            Assert.IsFalse(authenticationServerConfiguration.PersistOperationalData);
+        }
+
+        [TestMethod]
         public void RequireHttpsIsEnabledByDefault()
         {
             SetupAuthenticationServerConfiguration("RequireHttpsIsEnabledByDefault.config");
